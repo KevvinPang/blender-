@@ -1,0 +1,3 @@
+-r services/sam-3d-body/local_app/requirements.txt
+safetensors
+scipy

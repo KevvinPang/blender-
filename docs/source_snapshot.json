@@ -1,0 +1,1314 @@
+{
+  "snapshot_date": "2026-11-07",
+  "files": [
+    {
+      "path": "tools/ellen_expression_library.py",
+      "source": "production-tools/ellen_expression_library.py",
+      "source_sha256": "9b2c49d9a4593c616a784bf686c9b91026e6286d28532960a26d5d5e04e6b786",
+      "repository_sha256": "9b2c49d9a4593c616a784bf686c9b91026e6286d28532960a26d5d5e04e6b786"
+    },
+    {
+      "path": "tools/ellen_expression_timeline.py",
+      "source": "production-tools/ellen_expression_timeline.py",
+      "source_sha256": "3fcf1cf8c0b1fd23829ab4d9917566bcb81ca0fa9eb517985e1f8fb73997a7e5",
+      "repository_sha256": "3fcf1cf8c0b1fd23829ab4d9917566bcb81ca0fa9eb517985e1f8fb73997a7e5"
+    },
+    {
+      "path": "tools/ellen_home_controls.py",
+      "source": "production-tools/ellen_home_controls.py",
+      "source_sha256": "222bd4ccfa823a31aa7de77f03ad1ddde6117f2e78e4eedc014e3c9878e9e117",
+      "repository_sha256": "222bd4ccfa823a31aa7de77f03ad1ddde6117f2e78e4eedc014e3c9878e9e117"
+    },
+    {
+      "path": "tools/enhance_sam_take_with_wilor.py",
+      "source": "production-tools/enhance_sam_take_with_wilor.py",
+      "source_sha256": "6b16d8dcc7d70b8d57c5960ff0ef8d3b34fbbdc612c762acdd304e852fb5f21d",
+      "repository_sha256": "a02039e25c379cccaa207d12a9ca1b4e262956f3f65099a23e17d1de06b969f3"
+    },
+    {
+      "path": "tools/finger_reliability_repair.py",
+      "source": "production-tools/finger_reliability_repair.py",
+      "source_sha256": "374971e64518b344c4967388fadc61480bbd59b5f1a02eae52d8a15ab8e12d1c",
+      "repository_sha256": "374971e64518b344c4967388fadc61480bbd59b5f1a02eae52d8a15ab8e12d1c"
+    },
+    {
+      "path": "tools/fix_ellen_collar.py",
+      "source": "production-tools/fix_ellen_collar.py",
+      "source_sha256": "9b8ef517cec969a228fbbafbc2c6e7cc58242932967002338246ece454a0ae02",
+      "repository_sha256": "9b8ef517cec969a228fbbafbc2c6e7cc58242932967002338246ece454a0ae02"
+    },
+    {
+      "path": "tools/motion_tweak.py",
+      "source": "production-tools/motion_tweak.py",
+      "source_sha256": "274206de063eae1776298bb57c3584d0d78f05fcc8bd5afe465bee6467b7d124",
+      "repository_sha256": "274206de063eae1776298bb57c3584d0d78f05fcc8bd5afe465bee6467b7d124"
+    },
+    {
+      "path": "tools/run_wilor_video_test.py",
+      "source": "production-tools/run_wilor_video_test.py",
+      "source_sha256": "9c4b93f21cc61d5d99c6cf22b5bbe47bfb62a17002ae971addc3bd3b4af42a93",
+      "repository_sha256": "588fefe272ab5f8a5c42ff9a9b5d73fea8f398222d95c8e3d81264e3e49802cb"
+    },
+    {
+      "path": "tools/sam_arm_evidence.py",
+      "source": "production-tools/sam_arm_evidence.py",
+      "source_sha256": "d3ef37aec53e807bf5774a1b0565a38743077a5b11ae2c272d05547433901a4a",
+      "repository_sha256": "d3ef37aec53e807bf5774a1b0565a38743077a5b11ae2c272d05547433901a4a"
+    },
+    {
+      "path": "tools/sam_ellen_arm_chain.py",
+      "source": "production-tools/sam_ellen_arm_chain.py",
+      "source_sha256": "926cdc5f2b42b26f2d0b26262a9380392c4d0e0f375c95079d7427da2c9a4218",
+      "repository_sha256": "926cdc5f2b42b26f2d0b26262a9380392c4d0e0f375c95079d7427da2c9a4218"
+    },
+    {
+      "path": "tools/sam_ellen_arm_policy.py",
+      "source": "production-tools/sam_ellen_arm_policy.py",
+      "source_sha256": "aa542aaf62da8ade586a63f8e915822151da9ebc9396aef4507e880051d69fa2",
+      "repository_sha256": "aa542aaf62da8ade586a63f8e915822151da9ebc9396aef4507e880051d69fa2"
+    },
+    {
+      "path": "tools/sam_ellen_arm_stability.py",
+      "source": "production-tools/sam_ellen_arm_stability.py",
+      "source_sha256": "439278987f52b84b0a71460ceee2e916c5fa438df4a937ce6f9eec58894451b6",
+      "repository_sha256": "439278987f52b84b0a71460ceee2e916c5fa438df4a937ce6f9eec58894451b6"
+    },
+    {
+      "path": "tools/sam_ellen_arm_transition.py",
+      "source": "production-tools/sam_ellen_arm_transition.py",
+      "source_sha256": "a898739182b8426d7a59fdaae25b3fa93a2764dab85fc7d4ea448a020ca3aba5",
+      "repository_sha256": "a898739182b8426d7a59fdaae25b3fa93a2764dab85fc7d4ea448a020ca3aba5"
+    },
+    {
+      "path": "tools/sam_ellen_arm_visibility.py",
+      "source": "production-tools/sam_ellen_arm_visibility.py",
+      "source_sha256": "5664e3066f21c7b72d63e91a2d46e24fb362b59c3e737b61af0d3c86b25238c6",
+      "repository_sha256": "5664e3066f21c7b72d63e91a2d46e24fb362b59c3e737b61af0d3c86b25238c6"
+    },
+    {
+      "path": "tools/sam_ellen_articulation.py",
+      "source": "production-tools/sam_ellen_articulation.py",
+      "source_sha256": "11b654b9dea72331810159bc9b5739b45c5833b79c0c4758b2ce0c08469441f0",
+      "repository_sha256": "11b654b9dea72331810159bc9b5739b45c5833b79c0c4758b2ce0c08469441f0"
+    },
+    {
+      "path": "tools/sam_ellen_audio_lipsync.py",
+      "source": "production-tools/sam_ellen_audio_lipsync.py",
+      "source_sha256": "ed8af29099b3109fa09671e47310feb788845bd44166541cb183adf047455a86",
+      "repository_sha256": "ed8af29099b3109fa09671e47310feb788845bd44166541cb183adf047455a86"
+    },
+    {
+      "path": "tools/sam_ellen_body_clearance.py",
+      "source": "production-tools/sam_ellen_body_clearance.py",
+      "source_sha256": "5f9377368e4d138e1877719a50dc9c560b8ed48a11cb6af62e76cf155e84a620",
+      "repository_sha256": "5f9377368e4d138e1877719a50dc9c560b8ed48a11cb6af62e76cf155e84a620"
+    },
+    {
+      "path": "tools/sam_ellen_bridge.py",
+      "source": "production-tools/sam_ellen_bridge.py",
+      "source_sha256": "b5beacdddb4cce99b13083c9f9bdeb59c9eaca94e8202b86a8010149b3e35216",
+      "repository_sha256": "5132e83dd8862a643f726f8f96dd357216e9ce59155b56aeadbd1a00b78b4983"
+    },
+    {
+      "path": "tools/sam_ellen_camera_fit.py",
+      "source": "production-tools/sam_ellen_camera_fit.py",
+      "source_sha256": "3b1bb7f52202dc86330ff116e3cdbd741d02acc54c8e24586c1cb59ac65020d3",
+      "repository_sha256": "3b1bb7f52202dc86330ff116e3cdbd741d02acc54c8e24586c1cb59ac65020d3"
+    },
+    {
+      "path": "tools/sam_ellen_chin_contact.py",
+      "source": "production-tools/sam_ellen_chin_contact.py",
+      "source_sha256": "7b4eeac8972216eff03d57b51fe233ebdfc6d7e7e36a3e45927f5834829676fe",
+      "repository_sha256": "7b4eeac8972216eff03d57b51fe233ebdfc6d7e7e36a3e45927f5834829676fe"
+    },
+    {
+      "path": "tools/sam_ellen_dual_screen.py",
+      "source": "production-tools/sam_ellen_dual_screen.py",
+      "source_sha256": "a2d4792c91c809b7f4e1588d64a0e9beeae8260b5e74bcd686252a8756956bef",
+      "repository_sha256": "a2d4792c91c809b7f4e1588d64a0e9beeae8260b5e74bcd686252a8756956bef"
+    },
+    {
+      "path": "tools/sam_ellen_editing.py",
+      "source": "production-tools/sam_ellen_editing.py",
+      "source_sha256": "af50771bcdb1ea582af4cdfa153e8f796cc501dc2370fd935740a742fa01cef4",
+      "repository_sha256": "af50771bcdb1ea582af4cdfa153e8f796cc501dc2370fd935740a742fa01cef4"
+    },
+    {
+      "path": "tools/sam_ellen_entry.py",
+      "source": "production-tools/sam_ellen_entry.py",
+      "source_sha256": "c5efa50c4a9d5700c67b280180011fd10a11747a83659d1df3af219466b6e247",
+      "repository_sha256": "c5efa50c4a9d5700c67b280180011fd10a11747a83659d1df3af219466b6e247"
+    },
+    {
+      "path": "tools/sam_ellen_entry_direction.py",
+      "source": "production-tools/sam_ellen_entry_direction.py",
+      "source_sha256": "60c751c3d6188bcec36be0dcc73835b80d87e2461e733870e49b8d6d9331a92b",
+      "repository_sha256": "60c751c3d6188bcec36be0dcc73835b80d87e2461e733870e49b8d6d9331a92b"
+    },
+    {
+      "path": "tools/sam_ellen_entry_solver.py",
+      "source": "production-tools/sam_ellen_entry_solver.py",
+      "source_sha256": "8166016700dde4328d0b49d6f1a7f9192660ab11e0fffb212cc1ef58dffe5ce7",
+      "repository_sha256": "8166016700dde4328d0b49d6f1a7f9192660ab11e0fffb212cc1ef58dffe5ce7"
+    },
+    {
+      "path": "tools/sam_ellen_face.py",
+      "source": "production-tools/sam_ellen_face.py",
+      "source_sha256": "9b15f8e22ed314fc27c92a4e7b4c7d4a48aa8fea196d220f935bf993b00d26fa",
+      "repository_sha256": "9b15f8e22ed314fc27c92a4e7b4c7d4a48aa8fea196d220f935bf993b00d26fa"
+    },
+    {
+      "path": "tools/sam_ellen_finger_repair.py",
+      "source": "production-tools/sam_ellen_finger_repair.py",
+      "source_sha256": "6ae8dfcba9b9fa1536f77011ab0892997b07ad4be1bd1d6ad2847216ae841c90",
+      "repository_sha256": "1e9a6b8983fca9eca1c9793e70a0609e1cf21dd2844948586eaf709420308106"
+    },
+    {
+      "path": "tools/sam_ellen_fist_final.py",
+      "source": "production-tools/sam_ellen_fist_final.py",
+      "source_sha256": "61f4c4d0e3bac89814b1cd01933b105c6878537d99d0316de466617e3f79c8a4",
+      "repository_sha256": "61f4c4d0e3bac89814b1cd01933b105c6878537d99d0316de466617e3f79c8a4"
+    },
+    {
+      "path": "tools/sam_ellen_fold_guard.py",
+      "source": "production-tools/sam_ellen_fold_guard.py",
+      "source_sha256": "f07b0d958f6fdc92c81a3fc0cf0ac80445eda8431420c985f90b67c323e4efe3",
+      "repository_sha256": "f07b0d958f6fdc92c81a3fc0cf0ac80445eda8431420c985f90b67c323e4efe3"
+    },
+    {
+      "path": "tools/sam_ellen_frame_body.py",
+      "source": "production-tools/sam_ellen_frame_body.py",
+      "source_sha256": "c92be78b60ff941633011f23909d989a80cc1d3b6ae99a828b948904a90cb7c3",
+      "repository_sha256": "c92be78b60ff941633011f23909d989a80cc1d3b6ae99a828b948904a90cb7c3"
+    },
+    {
+      "path": "tools/sam_ellen_framing.py",
+      "source": "production-tools/sam_ellen_framing.py",
+      "source_sha256": "8ae2c3b5bf18018b1400b4c4350781500eb0311c0a23b505a532f9a38c30c7be",
+      "repository_sha256": "8ae2c3b5bf18018b1400b4c4350781500eb0311c0a23b505a532f9a38c30c7be"
+    },
+    {
+      "path": "tools/sam_ellen_framing_stability.py",
+      "source": "production-tools/sam_ellen_framing_stability.py",
+      "source_sha256": "136c170f1aafccedb54d4b1f9b0e294731d7cb42ea29013d01450363432f29ff",
+      "repository_sha256": "136c170f1aafccedb54d4b1f9b0e294731d7cb42ea29013d01450363432f29ff"
+    },
+    {
+      "path": "tools/sam_ellen_gaze.py",
+      "source": "production-tools/sam_ellen_gaze.py",
+      "source_sha256": "2e95067519c6ce8bfbb7aa0d4e32cbd3a59a95f2fb03163f42aa84ed8e394304",
+      "repository_sha256": "2e95067519c6ce8bfbb7aa0d4e32cbd3a59a95f2fb03163f42aa84ed8e394304"
+    },
+    {
+      "path": "tools/sam_ellen_gestures.py",
+      "source": "production-tools/sam_ellen_gestures.py",
+      "source_sha256": "e4df6dafe38c8a41208aae3b16163fbc4c77b8496525fa697b9e71f5980f9d20",
+      "repository_sha256": "e4df6dafe38c8a41208aae3b16163fbc4c77b8496525fa697b9e71f5980f9d20"
+    },
+    {
+      "path": "tools/sam_ellen_hand_temporal.py",
+      "source": "production-tools/sam_ellen_hand_temporal.py",
+      "source_sha256": "30ebc5ceb971c39a14efeed2c1438a70d9d04a5beb169c802e45e76dd99373b1",
+      "repository_sha256": "30ebc5ceb971c39a14efeed2c1438a70d9d04a5beb169c802e45e76dd99373b1"
+    },
+    {
+      "path": "tools/sam_ellen_head_pose.py",
+      "source": "production-tools/sam_ellen_head_pose.py",
+      "source_sha256": "5b8c6708d4eaf2b03db7fc59ace340644bbf7e44d0d6b7b140cfa36e9a9c732f",
+      "repository_sha256": "5b8c6708d4eaf2b03db7fc59ace340644bbf7e44d0d6b7b140cfa36e9a9c732f"
+    },
+    {
+      "path": "tools/sam_ellen_image_chain.py",
+      "source": "production-tools/sam_ellen_image_chain.py",
+      "source_sha256": "ebdbf7f5ed1662285ad219ae9ca9795f08e78ee339932e283e81a80825731d5b",
+      "repository_sha256": "ebdbf7f5ed1662285ad219ae9ca9795f08e78ee339932e283e81a80825731d5b"
+    },
+    {
+      "path": "tools/sam_ellen_image_framing.py",
+      "source": "production-tools/sam_ellen_image_framing.py",
+      "source_sha256": "5373973dbcebc7cb4e684a355d75143470009ae728518167f0415386d19e47e3",
+      "repository_sha256": "5373973dbcebc7cb4e684a355d75143470009ae728518167f0415386d19e47e3"
+    },
+    {
+      "path": "tools/sam_ellen_image_geometry.py",
+      "source": "production-tools/sam_ellen_image_geometry.py",
+      "source_sha256": "8065c3c71a28b43558301033942b84bfa70354d12789b6be1289a469ab515e3f",
+      "repository_sha256": "8065c3c71a28b43558301033942b84bfa70354d12789b6be1289a469ab515e3f"
+    },
+    {
+      "path": "tools/sam_ellen_image_refine.py",
+      "source": "production-tools/sam_ellen_image_refine.py",
+      "source_sha256": "b368f560889443b70edb61ee27ba601043efa3e93cddf5e7903cf6ec1630ef5e",
+      "repository_sha256": "b368f560889443b70edb61ee27ba601043efa3e93cddf5e7903cf6ec1630ef5e"
+    },
+    {
+      "path": "tools/sam_ellen_livliv.py",
+      "source": "production-tools/sam_ellen_livliv.py",
+      "source_sha256": "d9f1f43b876d6de40853db7a988beca5dccd7dd7c81e135b6a113e87e14a3906",
+      "repository_sha256": "d9f1f43b876d6de40853db7a988beca5dccd7dd7c81e135b6a113e87e14a3906"
+    },
+    {
+      "path": "tools/sam_ellen_motion_continuity.py",
+      "source": "production-tools/sam_ellen_motion_continuity.py",
+      "source_sha256": "85402385cf34969b565461229e48122654b1fa9540c9ee90c12c21b518b2b120",
+      "repository_sha256": "85402385cf34969b565461229e48122654b1fa9540c9ee90c12c21b518b2b120"
+    },
+    {
+      "path": "tools/sam_ellen_palm_orientation.py",
+      "source": "production-tools/sam_ellen_palm_orientation.py",
+      "source_sha256": "f48177c24e7f47d7544fe594554726fe8a72c58ba181fe03e5618b810ab38a6d",
+      "repository_sha256": "f48177c24e7f47d7544fe594554726fe8a72c58ba181fe03e5618b810ab38a6d"
+    },
+    {
+      "path": "tools/sam_ellen_phone.py",
+      "source": "production-tools/sam_ellen_phone.py",
+      "source_sha256": "00169f7a945aaab9efe7756633e07f2667056e8ffd0f4101f9db1b8d08fd3faa",
+      "repository_sha256": "00169f7a945aaab9efe7756633e07f2667056e8ffd0f4101f9db1b8d08fd3faa"
+    },
+    {
+      "path": "tools/sam_ellen_phone_ranges.py",
+      "source": "production-tools/sam_ellen_phone_ranges.py",
+      "source_sha256": "d44d7a40a849c605e8a8f51a60ee8638e3d79219be159048452824ec46bcf7e9",
+      "repository_sha256": "d44d7a40a849c605e8a8f51a60ee8638e3d79219be159048452824ec46bcf7e9"
+    },
+    {
+      "path": "tools/sam_ellen_pipeline.py",
+      "source": "production-tools/sam_ellen_pipeline.py",
+      "source_sha256": "1bea6c3d73a7c063119d7822a3fad5c34872fc38fc31f377fa7321290bea0e9e",
+      "repository_sha256": "1bea6c3d73a7c063119d7822a3fad5c34872fc38fc31f377fa7321290bea0e9e"
+    },
+    {
+      "path": "tools/sam_ellen_projection.py",
+      "source": "production-tools/sam_ellen_projection.py",
+      "source_sha256": "7b18822070ab881b316880dbbf41cb9c3e5ef76ede92d6a1489110862bd25cf9",
+      "repository_sha256": "7b18822070ab881b316880dbbf41cb9c3e5ef76ede92d6a1489110862bd25cf9"
+    },
+    {
+      "path": "tools/sam_ellen_punch.py",
+      "source": "production-tools/sam_ellen_punch.py",
+      "source_sha256": "500276f549f1bb713083c05fdeeafb3789bb2e10be1331f8033d5ada8295effe",
+      "repository_sha256": "500276f549f1bb713083c05fdeeafb3789bb2e10be1331f8033d5ada8295effe"
+    },
+    {
+      "path": "tools/sam_ellen_punch_mesh.py",
+      "source": "production-tools/sam_ellen_punch_mesh.py",
+      "source_sha256": "454dffbb5c203a8187bf8e7230da4a69fe2770e3199b0895c67ba241acb36004",
+      "repository_sha256": "454dffbb5c203a8187bf8e7230da4a69fe2770e3199b0895c67ba241acb36004"
+    },
+    {
+      "path": "tools/sam_ellen_punch_pose.py",
+      "source": "production-tools/sam_ellen_punch_pose.py",
+      "source_sha256": "b9fc4804c8a8eac2d0fbb272cd29ee35d6377f8e89d35f57ae2e75c4053041aa",
+      "repository_sha256": "b9fc4804c8a8eac2d0fbb272cd29ee35d6377f8e89d35f57ae2e75c4053041aa"
+    },
+    {
+      "path": "tools/sam_ellen_retarget.py",
+      "source": "production-tools/sam_ellen_retarget.py",
+      "source_sha256": "31260a3e68f81857406748431bca3a6f82068d3f9fe0b28ec34a8fd056ba1f46",
+      "repository_sha256": "31260a3e68f81857406748431bca3a6f82068d3f9fe0b28ec34a8fd056ba1f46"
+    },
+    {
+      "path": "tools/sam_ellen_screen.py",
+      "source": "production-tools/sam_ellen_screen.py",
+      "source_sha256": "839baf96f52f4392645cb488db78f053dfc53a12d550f83658a29c457462f856",
+      "repository_sha256": "839baf96f52f4392645cb488db78f053dfc53a12d550f83658a29c457462f856"
+    },
+    {
+      "path": "tools/sam_ellen_screen_fit.py",
+      "source": "production-tools/sam_ellen_screen_fit.py",
+      "source_sha256": "0b0e2eabd727ad0f673806d4f99fcbe5e81d409bbaabda343cc8b0b5c8e5c0e3",
+      "repository_sha256": "0b0e2eabd727ad0f673806d4f99fcbe5e81d409bbaabda343cc8b0b5c8e5c0e3"
+    },
+    {
+      "path": "tools/sam_ellen_sequence.py",
+      "source": "production-tools/sam_ellen_sequence.py",
+      "source_sha256": "ceeaf07cbed9f046424dc6d61b851385df407309e73d718299064e9db4fe86dc",
+      "repository_sha256": "ceeaf07cbed9f046424dc6d61b851385df407309e73d718299064e9db4fe86dc"
+    },
+    {
+      "path": "tools/sam_ellen_speech.py",
+      "source": "production-tools/sam_ellen_speech.py",
+      "source_sha256": "c271914236a73b3f41047d258c237719c22edd93f4ae68751a92cf3b5667398b",
+      "repository_sha256": "7416c624ef5b1f31ec1f4931ce4a37c301079db097fd448c0aa46125617a31fa"
+    },
+    {
+      "path": "tools/sam_ellen_temporal.py",
+      "source": "production-tools/sam_ellen_temporal.py",
+      "source_sha256": "88b4323e31ded62ed7855ce48fb149ad300203acb075865fb2e6be075d94c6c8",
+      "repository_sha256": "88b4323e31ded62ed7855ce48fb149ad300203acb075865fb2e6be075d94c6c8"
+    },
+    {
+      "path": "tools/sam_ellen_torso.py",
+      "source": "production-tools/sam_ellen_torso.py",
+      "source_sha256": "f362bb1c0db6bedd8b18ccb0dd63edc4fa92e0f64ae38aee36cbcc2389aa8c82",
+      "repository_sha256": "f362bb1c0db6bedd8b18ccb0dd63edc4fa92e0f64ae38aee36cbcc2389aa8c82"
+    },
+    {
+      "path": "tools/sam_ellen_validation.py",
+      "source": "production-tools/sam_ellen_validation.py",
+      "source_sha256": "4c4f99569c0bcc70c8d2a585d56dffb3b57a6ad182b1ad14ec3f930c2cc32b25",
+      "repository_sha256": "4c4f99569c0bcc70c8d2a585d56dffb3b57a6ad182b1ad14ec3f930c2cc32b25"
+    },
+    {
+      "path": "tools/sam_ellen_video_audio.py",
+      "source": "production-tools/sam_ellen_video_audio.py",
+      "source_sha256": "568b92c7d8470ca3da21796bbb6a4b02a690b37f7a3240274e66b3e257b0386b",
+      "repository_sha256": "568b92c7d8470ca3da21796bbb6a4b02a690b37f7a3240274e66b3e257b0386b"
+    },
+    {
+      "path": "tools/sam_entry_video_worker.py",
+      "source": "production-tools/sam_entry_video_worker.py",
+      "source_sha256": "8dd2f4508eb68af01bda5e4e4109748a8369893a779df083a5f5ed712a1a12f5",
+      "repository_sha256": "8dd2f4508eb68af01bda5e4e4109748a8369893a779df083a5f5ed712a1a12f5"
+    },
+    {
+      "path": "tools/sam_finger_experiment.py",
+      "source": "production-tools/sam_finger_experiment.py",
+      "source_sha256": "625cdea8a02ff2599dc07bdd9929b409c53cce5063909ef08c1fd3ab83e65e15",
+      "repository_sha256": "625cdea8a02ff2599dc07bdd9929b409c53cce5063909ef08c1fd3ab83e65e15"
+    },
+    {
+      "path": "tools/sam_hand_depth_worker.py",
+      "source": "production-tools/sam_hand_depth_worker.py",
+      "source_sha256": "156ff66dd5b194d79f357df2758be39b635c967860c3ff7ba8c2ba09e76806c4",
+      "repository_sha256": "141187a5965c21bfad2e57c19296df13f447e0d1919956f2d62747a76aaf49ea"
+    },
+    {
+      "path": "tools/sam_punch_evidence.py",
+      "source": "production-tools/sam_punch_evidence.py",
+      "source_sha256": "72b772ed2d4762247916dbe3af50bd68587d40c3ab06bc92aaabbb4a790476c8",
+      "repository_sha256": "72b772ed2d4762247916dbe3af50bd68587d40c3ab06bc92aaabbb4a790476c8"
+    },
+    {
+      "path": "tools/sam_punch_video_worker.py",
+      "source": "production-tools/sam_punch_video_worker.py",
+      "source_sha256": "3b5eac903ced83d92d9153acb920cb0f842dc0ba0296c68b4d43511d47fc5e92",
+      "repository_sha256": "3a88e3932df88accff6312b5ed6dd11cd24a380b4a44732dd9fbc520462bc6e4"
+    },
+    {
+      "path": "tools/wilor_temporal.py",
+      "source": "production-tools/wilor_temporal.py",
+      "source_sha256": "a9c29380c9b2686000b6fd654894eeca8d783e03e8f3424ba1c7e1175eb336ff",
+      "repository_sha256": "8a289836fad0482ff1462c454b6722d3e9d21e24532a816cc18023de136b20db"
+    },
+    {
+      "path": "tools/wilor_thumb.py",
+      "source": "production-tools/wilor_thumb.py",
+      "source_sha256": "479079142cb476fda32a007a50d382f9c40ef75ef8276374e32d55062618d5e6",
+      "repository_sha256": "479079142cb476fda32a007a50d382f9c40ef75ef8276374e32d55062618d5e6"
+    },
+    {
+      "path": "tools/xr_ellen_bridge.py",
+      "source": "production-tools/xr_ellen_bridge.py",
+      "source_sha256": "445e2aa461d264ae387befebf0ec0cc73cd650bee20398e093707af2061f59b5",
+      "repository_sha256": "445e2aa461d264ae387befebf0ec0cc73cd650bee20398e093707af2061f59b5"
+    },
+    {
+      "path": "tools/xr_hand_retarget.py",
+      "source": "production-tools/xr_hand_retarget.py",
+      "source_sha256": "478f064435021bfc19665be14caecc5039406ca874dc541b89958f8ff3d1a48c",
+      "repository_sha256": "478f064435021bfc19665be14caecc5039406ca874dc541b89958f8ff3d1a48c"
+    },
+    {
+      "path": "tools/sam_ellen_phone_grips.json",
+      "source": "production-tools/sam_ellen_phone_grips.json",
+      "source_sha256": "f1335cfd10fb227bbadafeae3cbd64cf7dbb726b055b380cebca4164e877c9b5",
+      "repository_sha256": "f1335cfd10fb227bbadafeae3cbd64cf7dbb726b055b380cebca4164e877c9b5"
+    },
+    {
+      "path": "tools/wiggle_2.py",
+      "source": "installed-addons/wiggle_2.py",
+      "source_sha256": "1e9517faa690a794ba10cf15f8aaecd42a8530a4a910d78abaa3708166f67cc5",
+      "repository_sha256": "1e9517faa690a794ba10cf15f8aaecd42a8530a4a910d78abaa3708166f67cc5"
+    },
+    {
+      "path": "tools/vendor/livliv/LICENSE",
+      "source": "production-vendor/livliv/LICENSE",
+      "source_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+      "repository_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+    },
+    {
+      "path": "tools/vendor/livliv/NOTICE",
+      "source": "production-vendor/livliv/NOTICE",
+      "source_sha256": "bbb5eebf3d0eb7b4a4b280326f4ee576ada284fa8bc2c417809fd1639ccde3fa",
+      "repository_sha256": "bbb5eebf3d0eb7b4a4b280326f4ee576ada284fa8bc2c417809fd1639ccde3fa"
+    },
+    {
+      "path": "tools/vendor/livliv/README.md",
+      "source": "production-vendor/livliv/README.md",
+      "source_sha256": "6139a9b22188573d844da384c9caafd56733a4f7f2ebde8b25ce16095a7f23bd",
+      "repository_sha256": "6139a9b22188573d844da384c9caafd56733a4f7f2ebde8b25ce16095a7f23bd"
+    },
+    {
+      "path": "tools/vendor/wiggle2/LICENSE",
+      "source": "production-vendor/wiggle2/LICENSE",
+      "source_sha256": "605e9047a563c5c8396ffb18232aa4304ec56586aee537c45064c6fb425e44ad",
+      "repository_sha256": "605e9047a563c5c8396ffb18232aa4304ec56586aee537c45064c6fb425e44ad"
+    },
+    {
+      "path": "tools/vendor/wiggle2/README.md",
+      "source": "production-vendor/wiggle2/README.md",
+      "source_sha256": "d9553ed33aae3720772e7a56fa7fc72a7f3439c49564813506ed86913922e74d",
+      "repository_sha256": "d9553ed33aae3720772e7a56fa7fc72a7f3439c49564813506ed86913922e74d"
+    },
+    {
+      "path": "tools/vendor/wiggle2/wiggle_2.py",
+      "source": "production-vendor/wiggle2/wiggle_2.py",
+      "source_sha256": "1e9517faa690a794ba10cf15f8aaecd42a8530a4a910d78abaa3708166f67cc5",
+      "repository_sha256": "1e9517faa690a794ba10cf15f8aaecd42a8530a4a910d78abaa3708166f67cc5"
+    },
+    {
+      "path": "tools/vendor/wiggle2/wiggle_2_original.py",
+      "source": "production-vendor/wiggle2/wiggle_2_original.py",
+      "source_sha256": "7333687ae3b6fd20feae8afda649faed1d99bc7b98e92622a8993c09061deac1",
+      "repository_sha256": "7333687ae3b6fd20feae8afda649faed1d99bc7b98e92622a8993c09061deac1"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/alignment_worker.py",
+      "source": "sam-service/local_app/alignment_worker.py",
+      "source_sha256": "d2a055ca73b6078609318a835e0ef1634937458dc7d1b55f4a737ca41746b9d4",
+      "repository_sha256": "d2a055ca73b6078609318a835e0ef1634937458dc7d1b55f4a737ca41746b9d4"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/app.py",
+      "source": "sam-service/local_app/app.py",
+      "source_sha256": "163e381231681599345bd0027f8f97b1265c386946cbfe1b649e2b32a4622141",
+      "repository_sha256": "163e381231681599345bd0027f8f97b1265c386946cbfe1b649e2b32a4622141"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/create_shortcuts.ps1",
+      "source": "sam-service/local_app/create_shortcuts.ps1",
+      "source_sha256": "5f820afa92e3bda9bf99cea881db00feec2e6d5b36ce7ea69498766d39e860b4",
+      "repository_sha256": "5f820afa92e3bda9bf99cea881db00feec2e6d5b36ce7ea69498766d39e860b4"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/DEPLOYMENT.md",
+      "source": "sam-service/local_app/DEPLOYMENT.md",
+      "source_sha256": "e231713dd102d85784e90b42acad3a4271754082d28ef32c9b664b28bccc03f7",
+      "repository_sha256": "e231713dd102d85784e90b42acad3a4271754082d28ef32c9b664b28bccc03f7"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/face_capture.py",
+      "source": "sam-service/local_app/face_capture.py",
+      "source_sha256": "3b9ce0245a03c19b856fc220ea213de5d33c47d6dd4029fe6b75314871905ccc",
+      "repository_sha256": "25fa9f17060dd6ebe50340b4045fe503bb8f27f637c80dabd659f659580940c8"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/face_worker.py",
+      "source": "sam-service/local_app/face_worker.py",
+      "source_sha256": "91fe01a4b1717082c42d591afe0c42be380c15c7d57c0ca487b4f4904e565cec",
+      "repository_sha256": "91fe01a4b1717082c42d591afe0c42be380c15c7d57c0ca487b4f4904e565cec"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/hand_capture.py",
+      "source": "sam-service/local_app/hand_capture.py",
+      "source_sha256": "ea9905fb56724092e12d6928cd3814dfc151a44f0e1661c1b71f8dd9850c6320",
+      "repository_sha256": "07ccdbc1d19b9252019c9f8d742787213c76a4552b382386f5c512376740351b"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/launch.ps1",
+      "source": "sam-service/local_app/launch.ps1",
+      "source_sha256": "8154f891cff0787aced57f2b94318b69c7a9471e97293c4da3e9cf88a85a0db6",
+      "repository_sha256": "8154f891cff0787aced57f2b94318b69c7a9471e97293c4da3e9cf88a85a0db6"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/model_login.py",
+      "source": "sam-service/local_app/model_login.py",
+      "source_sha256": "c0d20abaf740d356adcc839369abe6c06dd49aeaa6eb77f649203afaa4df0f0e",
+      "repository_sha256": "c0d20abaf740d356adcc839369abe6c06dd49aeaa6eb77f649203afaa4df0f0e"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/public_backend.py",
+      "source": "sam-service/local_app/public_backend.py",
+      "source_sha256": "457d12d43818215645058adeb54bc22ed15ab4a6171f653b1f9cf3bbff56ff0c",
+      "repository_sha256": "42245427c8f4d336c6e31bdf6852d1623c823206f56f3da61b58598a138fa85b"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/requirements.txt",
+      "source": "sam-service/local_app/requirements.txt",
+      "source_sha256": "b7a1c32c863ea3ca62451ab12153927eb654b22fbe8e818202e28fcf21c75947",
+      "repository_sha256": "b7a1c32c863ea3ca62451ab12153927eb654b22fbe8e818202e28fcf21c75947"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/runtime.py",
+      "source": "sam-service/local_app/runtime.py",
+      "source_sha256": "8c44bde9cf50c01c76312f7400a670797a726999dd030cf5c8c37144517f2f74",
+      "repository_sha256": "8c44bde9cf50c01c76312f7400a670797a726999dd030cf5c8c37144517f2f74"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/sam_arm_evidence.py",
+      "source": "sam-service/local_app/sam_arm_evidence.py",
+      "source_sha256": "d3ef37aec53e807bf5774a1b0565a38743077a5b11ae2c272d05547433901a4a",
+      "repository_sha256": "d3ef37aec53e807bf5774a1b0565a38743077a5b11ae2c272d05547433901a4a"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/sam_punch_evidence.py",
+      "source": "sam-service/local_app/sam_punch_evidence.py",
+      "source_sha256": "96d1dc7cdd7b768ef445c6fab701c354998bb529b32f4b56dcd5486478a51664",
+      "repository_sha256": "96d1dc7cdd7b768ef445c6fab701c354998bb529b32f4b56dcd5486478a51664"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/test_face_capture.py",
+      "source": "sam-service/local_app/test_face_capture.py",
+      "source_sha256": "71f412ae32ecc9ebd67806f318cf1aadfded3e2d784e6d0196d298a01d1a0f29",
+      "repository_sha256": "71f412ae32ecc9ebd67806f318cf1aadfded3e2d784e6d0196d298a01d1a0f29"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/test_public_backend.py",
+      "source": "sam-service/local_app/test_public_backend.py",
+      "source_sha256": "083d74ff689bef88e040616d503e2375a115fb8e5c9eced2f2bc99a29a4f3455",
+      "repository_sha256": "083d74ff689bef88e040616d503e2375a115fb8e5c9eced2f2bc99a29a4f3455"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/test_runtime.py",
+      "source": "sam-service/local_app/test_runtime.py",
+      "source_sha256": "d57df009555c073e727f5132a62dfe4e577e13f7b8738c32d3faff16748f5e8e",
+      "repository_sha256": "d57df009555c073e727f5132a62dfe4e577e13f7b8738c32d3faff16748f5e8e"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/test_video_input.py",
+      "source": "sam-service/local_app/test_video_input.py",
+      "source_sha256": "943945b5929e0345c07236d49e11d413b2ba9db65f93e4544994f12571b11ee6",
+      "repository_sha256": "943945b5929e0345c07236d49e11d413b2ba9db65f93e4544994f12571b11ee6"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/test_video_jobs.py",
+      "source": "sam-service/local_app/test_video_jobs.py",
+      "source_sha256": "930b065caad2766af58b78d50cdde3f5596558d1901ead67e83fa18030dd92bd",
+      "repository_sha256": "930b065caad2766af58b78d50cdde3f5596558d1901ead67e83fa18030dd92bd"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/video_input.py",
+      "source": "sam-service/local_app/video_input.py",
+      "source_sha256": "acb1ffe9ec6e497a30ab7c98a4e1b33ac3a52d30bdb1395c91da8f6df46c1dbd",
+      "repository_sha256": "acb1ffe9ec6e497a30ab7c98a4e1b33ac3a52d30bdb1395c91da8f6df46c1dbd"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/video_jobs.py",
+      "source": "sam-service/local_app/video_jobs.py",
+      "source_sha256": "d6fa5ae4b218003bb89fa24acc8181234bbd6f0048d9cb31e4a933f057bf08c8",
+      "repository_sha256": "d6fa5ae4b218003bb89fa24acc8181234bbd6f0048d9cb31e4a933f057bf08c8"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/__init__.py",
+      "source": "sam-service/local_app/vendor/__init__.py",
+      "source_sha256": "afae5c5d652cb58a44985998d872a7d80f97901d18388bfaa4755600f457ce60",
+      "repository_sha256": "afae5c5d652cb58a44985998d872a7d80f97901d18388bfaa4755600f457ce60"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/camera_modules.py",
+      "source": "sam-service/local_app/vendor/camera_modules.py",
+      "source_sha256": "3453c21e7972e9bc7850eb30bd9299f16c0c277bd3cc6fde7e53de577e592065",
+      "repository_sha256": "3453c21e7972e9bc7850eb30bd9299f16c0c277bd3cc6fde7e53de577e592065"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/COMFY_LICENSE",
+      "source": "sam-service/local_app/vendor/COMFY_LICENSE",
+      "source_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "repository_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/compat.py",
+      "source": "sam-service/local_app/vendor/compat.py",
+      "source_sha256": "3b841421c282dcfc7ba136dc1433ec5e6469071a9c131b50b684d0a1a7806207",
+      "repository_sha256": "3b841421c282dcfc7ba136dc1433ec5e6469071a9c131b50b684d0a1a7806207"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/dino3.py",
+      "source": "sam-service/local_app/vendor/dino3.py",
+      "source_sha256": "5a633e7f4c62e5f62c771318222d047fb8d101cae2e508d7bb95d090b7c05849",
+      "repository_sha256": "5a633e7f4c62e5f62c771318222d047fb8d101cae2e508d7bb95d090b7c05849"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/mhr_head.py",
+      "source": "sam-service/local_app/vendor/mhr_head.py",
+      "source_sha256": "30fb1ac25c2e72fa04950915e69150fdf51bfd2714e8cf8e26e5ee1a9b5b219e",
+      "repository_sha256": "30fb1ac25c2e72fa04950915e69150fdf51bfd2714e8cf8e26e5ee1a9b5b219e"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/mhr_rig.py",
+      "source": "sam-service/local_app/vendor/mhr_rig.py",
+      "source_sha256": "667e9addec78693f188abbf856910b28ea141338b7a9aa8776a941c872c135c7",
+      "repository_sha256": "667e9addec78693f188abbf856910b28ea141338b7a9aa8776a941c872c135c7"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/mhr_utils.py",
+      "source": "sam-service/local_app/vendor/mhr_utils.py",
+      "source_sha256": "1e28a71a3e77151bd9395042e4a0b37330c3e1114038190a62bdf3d75da76ad9",
+      "repository_sha256": "1e28a71a3e77151bd9395042e4a0b37330c3e1114038190a62bdf3d75da76ad9"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/model.py",
+      "source": "sam-service/local_app/vendor/model.py",
+      "source_sha256": "0f3b0a1fa7f05a5b21e06f40a286de230d34a5e06261f260c70a4ee25ce63e74",
+      "repository_sha256": "0f3b0a1fa7f05a5b21e06f40a286de230d34a5e06261f260c70a4ee25ce63e74"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/NOTICE.md",
+      "source": "sam-service/local_app/vendor/NOTICE.md",
+      "source_sha256": "0e1502bd0a07604a7c9a491a7ca1509097674890075deac503f689d9eb10f99e",
+      "repository_sha256": "0e1502bd0a07604a7c9a491a7ca1509097674890075deac503f689d9eb10f99e"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/prompt.py",
+      "source": "sam-service/local_app/vendor/prompt.py",
+      "source_sha256": "781223cdc796f8d57d444f7862f2bd945d5e6bdf446a338a54563d1a80492ccc",
+      "repository_sha256": "781223cdc796f8d57d444f7862f2bd945d5e6bdf446a338a54563d1a80492ccc"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/transformer.py",
+      "source": "sam-service/local_app/vendor/transformer.py",
+      "source_sha256": "dd4dfd591ee852a04f07e7104ba3435fad8f7b0cc9a89fe3eff44af25d4e100c",
+      "repository_sha256": "dd4dfd591ee852a04f07e7104ba3435fad8f7b0cc9a89fe3eff44af25d4e100c"
+    },
+    {
+      "path": "services/sam-3d-body/local_app/vendor/utils.py",
+      "source": "sam-service/local_app/vendor/utils.py",
+      "source_sha256": "286f89eeeae4e4a042c43b8d65ab506a0aa0ba2a584db9a668efa6f2b86e7945",
+      "repository_sha256": "286f89eeeae4e4a042c43b8d65ab506a0aa0ba2a584db9a668efa6f2b86e7945"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/__init__.py",
+      "source": "sam-upstream/sam_3d_body/__init__.py",
+      "source_sha256": "f69e252dc42ef8d58ae1b72e97c5d34d6ac8d2fb342ba63c5f620caaa875db3f",
+      "repository_sha256": "f69e252dc42ef8d58ae1b72e97c5d34d6ac8d2fb342ba63c5f620caaa875db3f"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/build_models.py",
+      "source": "sam-upstream/sam_3d_body/build_models.py",
+      "source_sha256": "445b5408109232c770b892cbced52c34c3a104a76c685885e66963dcc349a41e",
+      "repository_sha256": "445b5408109232c770b892cbced52c34c3a104a76c685885e66963dcc349a41e"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/data/__init__.py",
+      "source": "sam-upstream/sam_3d_body/data/__init__.py",
+      "source_sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379",
+      "repository_sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/data/transforms/__init__.py",
+      "source": "sam-upstream/sam_3d_body/data/transforms/__init__.py",
+      "source_sha256": "ca65add3a731bf54d9917382f34f4eb3c3d8a45e9813a72c7896338f331eb4fc",
+      "repository_sha256": "ca65add3a731bf54d9917382f34f4eb3c3d8a45e9813a72c7896338f331eb4fc"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/data/transforms/bbox_utils.py",
+      "source": "sam-upstream/sam_3d_body/data/transforms/bbox_utils.py",
+      "source_sha256": "0f49a3f857a09f98d1fd9c609df42f875899515f5e10a0ea6b25acd7a9197d79",
+      "repository_sha256": "0f49a3f857a09f98d1fd9c609df42f875899515f5e10a0ea6b25acd7a9197d79"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/data/transforms/common.py",
+      "source": "sam-upstream/sam_3d_body/data/transforms/common.py",
+      "source_sha256": "165697629df2fe23a62bb90daa2ac8a0f67cac09d70f36844b3c089a9af5a45f",
+      "repository_sha256": "165697629df2fe23a62bb90daa2ac8a0f67cac09d70f36844b3c089a9af5a45f"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/data/utils/io.py",
+      "source": "sam-upstream/sam_3d_body/data/utils/io.py",
+      "source_sha256": "821bd310455dafeb1bbb0314d239d4802d6c889a203462ff964a90e5a62df079",
+      "repository_sha256": "821bd310455dafeb1bbb0314d239d4802d6c889a203462ff964a90e5a62df079"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/data/utils/prepare_batch.py",
+      "source": "sam-upstream/sam_3d_body/data/utils/prepare_batch.py",
+      "source_sha256": "c0555035944f02cfdb9d811b377a3c1ffdd2bfbfe256ee6dc501c8d9409298d0",
+      "repository_sha256": "c0555035944f02cfdb9d811b377a3c1ffdd2bfbfe256ee6dc501c8d9409298d0"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/metadata/__init__.py",
+      "source": "sam-upstream/sam_3d_body/metadata/__init__.py",
+      "source_sha256": "0f8dc30002c8612ef4897dea399f8b7fa45ec4e5d8d78e149f976480a3b89b53",
+      "repository_sha256": "0f8dc30002c8612ef4897dea399f8b7fa45ec4e5d8d78e149f976480a3b89b53"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/metadata/mhr70.py",
+      "source": "sam-upstream/sam_3d_body/metadata/mhr70.py",
+      "source_sha256": "695c2c7d472e32757c480114fdb054d54ee4af53f69b2a6e040b00a55b270dc9",
+      "repository_sha256": "695c2c7d472e32757c480114fdb054d54ee4af53f69b2a6e040b00a55b270dc9"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/__init__.py",
+      "source": "sam-upstream/sam_3d_body/models/__init__.py",
+      "source_sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379",
+      "repository_sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/backbones/__init__.py",
+      "source": "sam-upstream/sam_3d_body/models/backbones/__init__.py",
+      "source_sha256": "d20122a214bc25371bf679b9e7aeb9aa8e195019e277843b69662a3eccc5a8cd",
+      "repository_sha256": "d20122a214bc25371bf679b9e7aeb9aa8e195019e277843b69662a3eccc5a8cd"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/backbones/dinov3.py",
+      "source": "sam-upstream/sam_3d_body/models/backbones/dinov3.py",
+      "source_sha256": "53ae01ccdffa647f16b0fefe366f947162874a9e593d510864d52ffcd259e0e8",
+      "repository_sha256": "53ae01ccdffa647f16b0fefe366f947162874a9e593d510864d52ffcd259e0e8"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/backbones/vit.py",
+      "source": "sam-upstream/sam_3d_body/models/backbones/vit.py",
+      "source_sha256": "361308ff8fd80c6fd4a32baec1b8eee738fdf8cf638fc0c72921f3ceb408c794",
+      "repository_sha256": "361308ff8fd80c6fd4a32baec1b8eee738fdf8cf638fc0c72921f3ceb408c794"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/decoders/__init__.py",
+      "source": "sam-upstream/sam_3d_body/models/decoders/__init__.py",
+      "source_sha256": "943c89cb865277d6bb2274a086f314143a6e115b6b5ec99ac5858f7633c0d464",
+      "repository_sha256": "943c89cb865277d6bb2274a086f314143a6e115b6b5ec99ac5858f7633c0d464"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/decoders/keypoint_prompt_sampler.py",
+      "source": "sam-upstream/sam_3d_body/models/decoders/keypoint_prompt_sampler.py",
+      "source_sha256": "8f7692c5f4a5b0b8999c46651b702f4f7c02d0297a99e008a3d7a42df72bee81",
+      "repository_sha256": "8f7692c5f4a5b0b8999c46651b702f4f7c02d0297a99e008a3d7a42df72bee81"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/decoders/prompt_encoder.py",
+      "source": "sam-upstream/sam_3d_body/models/decoders/prompt_encoder.py",
+      "source_sha256": "a9160aa5ccdd4d5e2ae047605d86eee9e0e558344b85f716d963fd091f9a33d1",
+      "repository_sha256": "a9160aa5ccdd4d5e2ae047605d86eee9e0e558344b85f716d963fd091f9a33d1"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/decoders/promptable_decoder.py",
+      "source": "sam-upstream/sam_3d_body/models/decoders/promptable_decoder.py",
+      "source_sha256": "73c1219c176478e52358d9448d8087017e8294202653ca9fb62e2c964f7c363a",
+      "repository_sha256": "73c1219c176478e52358d9448d8087017e8294202653ca9fb62e2c964f7c363a"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/heads/__init__.py",
+      "source": "sam-upstream/sam_3d_body/models/heads/__init__.py",
+      "source_sha256": "e7605eced4289ad6e8d0d55d006949de6960ce1ad7483577016c6bca072cc02e",
+      "repository_sha256": "e7605eced4289ad6e8d0d55d006949de6960ce1ad7483577016c6bca072cc02e"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/heads/camera_head.py",
+      "source": "sam-upstream/sam_3d_body/models/heads/camera_head.py",
+      "source_sha256": "84a14112e5c4b216559c1f9a39c3a33d6fa277182c2037f44a76a9cb538de55e",
+      "repository_sha256": "84a14112e5c4b216559c1f9a39c3a33d6fa277182c2037f44a76a9cb538de55e"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/heads/mhr_head.py",
+      "source": "sam-upstream/sam_3d_body/models/heads/mhr_head.py",
+      "source_sha256": "03793d51ef82484c5d9906358c6314981c0bff9dbcc6f6e6b175bd977a251b35",
+      "repository_sha256": "03793d51ef82484c5d9906358c6314981c0bff9dbcc6f6e6b175bd977a251b35"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/meta_arch/__init__.py",
+      "source": "sam-upstream/sam_3d_body/models/meta_arch/__init__.py",
+      "source_sha256": "68a23d54173e7a34a7224d16f015c4af18ceb143fa5cb87e1a5e9d7b7ac16b05",
+      "repository_sha256": "68a23d54173e7a34a7224d16f015c4af18ceb143fa5cb87e1a5e9d7b7ac16b05"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/meta_arch/base_lightning_module.py",
+      "source": "sam-upstream/sam_3d_body/models/meta_arch/base_lightning_module.py",
+      "source_sha256": "c04fa1f3fcc840bf6b51ab8a90b4334fb260e851099b7a59cb9357914f1dc783",
+      "repository_sha256": "c04fa1f3fcc840bf6b51ab8a90b4334fb260e851099b7a59cb9357914f1dc783"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/meta_arch/base_model.py",
+      "source": "sam-upstream/sam_3d_body/models/meta_arch/base_model.py",
+      "source_sha256": "baf4c93ab865e6e9f4f498056a673698e59bafe89b17f969833884a3b352e8bc",
+      "repository_sha256": "baf4c93ab865e6e9f4f498056a673698e59bafe89b17f969833884a3b352e8bc"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/meta_arch/sam3d_body.py",
+      "source": "sam-upstream/sam_3d_body/models/meta_arch/sam3d_body.py",
+      "source_sha256": "851b7475f18b56891aa02606e7c0ee9e03120fa208cc85df5127b792e1abfeee",
+      "repository_sha256": "851b7475f18b56891aa02606e7c0ee9e03120fa208cc85df5127b792e1abfeee"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/modules/__init__.py",
+      "source": "sam-upstream/sam_3d_body/models/modules/__init__.py",
+      "source_sha256": "ddad96a6a9bf09d36156ba82ebaa9ee6798045fe1fc715174cec4c0b4bd2ead1",
+      "repository_sha256": "ddad96a6a9bf09d36156ba82ebaa9ee6798045fe1fc715174cec4c0b4bd2ead1"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/modules/camera_embed.py",
+      "source": "sam-upstream/sam_3d_body/models/modules/camera_embed.py",
+      "source_sha256": "42f2483368fa3249557464aaa188c5d422f4e2faeb29ecd6facc131a97141539",
+      "repository_sha256": "42f2483368fa3249557464aaa188c5d422f4e2faeb29ecd6facc131a97141539"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/modules/drop_path.py",
+      "source": "sam-upstream/sam_3d_body/models/modules/drop_path.py",
+      "source_sha256": "04c2f8bf7f13382c3d5c992fca00692a0591d187a2d271f49afaa5bce2ec9525",
+      "repository_sha256": "04c2f8bf7f13382c3d5c992fca00692a0591d187a2d271f49afaa5bce2ec9525"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/modules/geometry_utils.py",
+      "source": "sam-upstream/sam_3d_body/models/modules/geometry_utils.py",
+      "source_sha256": "2553899d9a0f781da1a1d73e8d49dcdd08376c5c0e471d6262e662229b645ef1",
+      "repository_sha256": "2553899d9a0f781da1a1d73e8d49dcdd08376c5c0e471d6262e662229b645ef1"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/modules/layer_scale.py",
+      "source": "sam-upstream/sam_3d_body/models/modules/layer_scale.py",
+      "source_sha256": "ef4e0f769dd072425384f354c9527e2fdd7346843379e5f3b0cb2110a72c1c81",
+      "repository_sha256": "ef4e0f769dd072425384f354c9527e2fdd7346843379e5f3b0cb2110a72c1c81"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/modules/mhr_utils.py",
+      "source": "sam-upstream/sam_3d_body/models/modules/mhr_utils.py",
+      "source_sha256": "5d95cca73aead5c783b29962b4bb2d930bd84a8d90f78627b534723cb1277e0c",
+      "repository_sha256": "5d95cca73aead5c783b29962b4bb2d930bd84a8d90f78627b534723cb1277e0c"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/modules/misc.py",
+      "source": "sam-upstream/sam_3d_body/models/modules/misc.py",
+      "source_sha256": "f942d181ee8578c67a9ab4c0828d030aefdadd8891450ab1319b33a8237891eb",
+      "repository_sha256": "f942d181ee8578c67a9ab4c0828d030aefdadd8891450ab1319b33a8237891eb"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/modules/swiglu_ffn.py",
+      "source": "sam-upstream/sam_3d_body/models/modules/swiglu_ffn.py",
+      "source_sha256": "7a25fff5fa99c910c8daea7737f3650881a92da11388ddfbfd57794dc9de5355",
+      "repository_sha256": "7a25fff5fa99c910c8daea7737f3650881a92da11388ddfbfd57794dc9de5355"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/modules/transformer.py",
+      "source": "sam-upstream/sam_3d_body/models/modules/transformer.py",
+      "source_sha256": "0cc343878ba8cdf28f9061de53ac0bc0fd6f829889ade96341729db5860ecbe4",
+      "repository_sha256": "0cc343878ba8cdf28f9061de53ac0bc0fd6f829889ade96341729db5860ecbe4"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/optim/__init__.py",
+      "source": "sam-upstream/sam_3d_body/models/optim/__init__.py",
+      "source_sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379",
+      "repository_sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/models/optim/fp16_utils.py",
+      "source": "sam-upstream/sam_3d_body/models/optim/fp16_utils.py",
+      "source_sha256": "90e25559a99fa341666c9c5da5b7e91d679ffdfab635aed9e9cf21d8f43c107d",
+      "repository_sha256": "90e25559a99fa341666c9c5da5b7e91d679ffdfab635aed9e9cf21d8f43c107d"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/sam_3d_body_estimator.py",
+      "source": "sam-upstream/sam_3d_body/sam_3d_body_estimator.py",
+      "source_sha256": "8bfa34316d82eabbe185c1cd64a77c47670785cdb0fa489b1481fb468266a145",
+      "repository_sha256": "8bfa34316d82eabbe185c1cd64a77c47670785cdb0fa489b1481fb468266a145"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/utils/__init__.py",
+      "source": "sam-upstream/sam_3d_body/utils/__init__.py",
+      "source_sha256": "f7b853e9727808b777120cacc5ef9835af0ceaee101e134f7b7a8dc6cbe0a410",
+      "repository_sha256": "f7b853e9727808b777120cacc5ef9835af0ceaee101e134f7b7a8dc6cbe0a410"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/utils/checkpoint.py",
+      "source": "sam-upstream/sam_3d_body/utils/checkpoint.py",
+      "source_sha256": "a54ec1f1c1ac899f29e1fa6bc5ab8c46834f7a803ce21dcc54ded658a883e4c0",
+      "repository_sha256": "a54ec1f1c1ac899f29e1fa6bc5ab8c46834f7a803ce21dcc54ded658a883e4c0"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/utils/config.py",
+      "source": "sam-upstream/sam_3d_body/utils/config.py",
+      "source_sha256": "9c7ce1d62d4dc5b62b027ebf63d7ac825d8fd29784db518b3aa7bf75f17fdbbc",
+      "repository_sha256": "9c7ce1d62d4dc5b62b027ebf63d7ac825d8fd29784db518b3aa7bf75f17fdbbc"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/utils/dist.py",
+      "source": "sam-upstream/sam_3d_body/utils/dist.py",
+      "source_sha256": "db6b4ebe17043c13eb7aa1c9b26debdb7e12a13310a349f5225f0b7105b2b87b",
+      "repository_sha256": "db6b4ebe17043c13eb7aa1c9b26debdb7e12a13310a349f5225f0b7105b2b87b"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/utils/logging.py",
+      "source": "sam-upstream/sam_3d_body/utils/logging.py",
+      "source_sha256": "d4b62bb43b5c383a8e237e63333f4ab5e84f4601bd21c27d060166c668210c54",
+      "repository_sha256": "d4b62bb43b5c383a8e237e63333f4ab5e84f4601bd21c27d060166c668210c54"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/visualization/__init__.py",
+      "source": "sam-upstream/sam_3d_body/visualization/__init__.py",
+      "source_sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379",
+      "repository_sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/visualization/renderer.py",
+      "source": "sam-upstream/sam_3d_body/visualization/renderer.py",
+      "source_sha256": "7c58769b2165b3b067dc514e883670c1e5a61b40bd43799bb3d010d6e9ca1460",
+      "repository_sha256": "7c58769b2165b3b067dc514e883670c1e5a61b40bd43799bb3d010d6e9ca1460"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/visualization/skeleton_visualizer.py",
+      "source": "sam-upstream/sam_3d_body/visualization/skeleton_visualizer.py",
+      "source_sha256": "04d24ff555265aecc878c5ccd979c1456b5ddc553240df2cd3bbe7b40dcf2e74",
+      "repository_sha256": "04d24ff555265aecc878c5ccd979c1456b5ddc553240df2cd3bbe7b40dcf2e74"
+    },
+    {
+      "path": "services/sam-3d-body/sam_3d_body/visualization/utils.py",
+      "source": "sam-upstream/sam_3d_body/visualization/utils.py",
+      "source_sha256": "119552d35e5374a7d9e8ac1f9e87af5a33ad6634bce4ea883531196a09bd748f",
+      "repository_sha256": "119552d35e5374a7d9e8ac1f9e87af5a33ad6634bce4ea883531196a09bd748f"
+    },
+    {
+      "path": "services/sam-3d-body/tools/__init__.py",
+      "source": "sam-upstream/tools/__init__.py",
+      "source_sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379",
+      "repository_sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379"
+    },
+    {
+      "path": "services/sam-3d-body/tools/build_detector.py",
+      "source": "sam-upstream/tools/build_detector.py",
+      "source_sha256": "04209c79a3b7013385a21cd5dd074d9629e332376efc29868db6ae7e36913f31",
+      "repository_sha256": "04209c79a3b7013385a21cd5dd074d9629e332376efc29868db6ae7e36913f31"
+    },
+    {
+      "path": "services/sam-3d-body/tools/build_fov_estimator.py",
+      "source": "sam-upstream/tools/build_fov_estimator.py",
+      "source_sha256": "8de23d52841886cdb4c45e8840d0a91a5118bd3b61061542b71104372fe1b75c",
+      "repository_sha256": "8de23d52841886cdb4c45e8840d0a91a5118bd3b61061542b71104372fe1b75c"
+    },
+    {
+      "path": "services/sam-3d-body/tools/build_sam.py",
+      "source": "sam-upstream/tools/build_sam.py",
+      "source_sha256": "05ce7354ecf3802c9c8f5769d4a431ea1ca640fe06a4fc801efd710de08d20fb",
+      "repository_sha256": "05ce7354ecf3802c9c8f5769d4a431ea1ca640fe06a4fc801efd710de08d20fb"
+    },
+    {
+      "path": "services/sam-3d-body/tools/cascade_mask_rcnn_vitdet_h_75ep.py",
+      "source": "sam-upstream/tools/cascade_mask_rcnn_vitdet_h_75ep.py",
+      "source_sha256": "63375483239fbc506b5bf4f2b134fdabc8829df3de85563a231b059e96e9de65",
+      "repository_sha256": "63375483239fbc506b5bf4f2b134fdabc8829df3de85563a231b059e96e9de65"
+    },
+    {
+      "path": "services/sam-3d-body/tools/vis_utils.py",
+      "source": "sam-upstream/tools/vis_utils.py",
+      "source_sha256": "6d7f1e2e58b0b22fe5b5f2587628c77b692ebe76dac6003432b9046f26f46c6c",
+      "repository_sha256": "6d7f1e2e58b0b22fe5b5f2587628c77b692ebe76dac6003432b9046f26f46c6c"
+    },
+    {
+      "path": "services/sam-3d-body/LICENSE",
+      "source": "sam-upstream/LICENSE",
+      "source_sha256": "b3a5a0e2d973ab80e6610ccf1cffc40756050d0ace3cd4fec879b3ec290b2e9b",
+      "repository_sha256": "b3a5a0e2d973ab80e6610ccf1cffc40756050d0ace3cd4fec879b3ec290b2e9b"
+    },
+    {
+      "path": "services/sam-3d-body/README.md",
+      "source": "sam-upstream/README.md",
+      "source_sha256": "95a4a2f373a56dc433deff5bc07581539b2a9f328918e078890f6158e4431fbb",
+      "repository_sha256": "95a4a2f373a56dc433deff5bc07581539b2a9f328918e078890f6158e4431fbb"
+    },
+    {
+      "path": "services/sam-3d-body/INSTALL.md",
+      "source": "sam-upstream/INSTALL.md",
+      "source_sha256": "63a732dadcbabc444d480fbb9fd229e191308dda8b64edf24476cdd55577c3a8",
+      "repository_sha256": "63a732dadcbabc444d480fbb9fd229e191308dda8b64edf24476cdd55577c3a8"
+    },
+    {
+      "path": "services/sam-3d-body/demo.py",
+      "source": "sam-upstream/demo.py",
+      "source_sha256": "cce03386c8d894097784823b12916ca3efaa4ca9b27a74968b6163f219fa6f5c",
+      "repository_sha256": "cce03386c8d894097784823b12916ca3efaa4ca9b27a74968b6163f219fa6f5c"
+    },
+    {
+      "path": "externals/sam2/sam2/__init__.py",
+      "source": "sam2/sam2/__init__.py",
+      "source_sha256": "fd116e43c17587fce9d5cc7de043dd183b29e4af5c369bd09ca121ffb03755f0",
+      "repository_sha256": "fd116e43c17587fce9d5cc7de043dd183b29e4af5c369bd09ca121ffb03755f0"
+    },
+    {
+      "path": "externals/sam2/sam2/automatic_mask_generator.py",
+      "source": "sam2/sam2/automatic_mask_generator.py",
+      "source_sha256": "b888136cfcd40f04aedcfccf56516f778038414ba9ae2bd41b3725a04ca89cc3",
+      "repository_sha256": "b888136cfcd40f04aedcfccf56516f778038414ba9ae2bd41b3725a04ca89cc3"
+    },
+    {
+      "path": "externals/sam2/sam2/benchmark.py",
+      "source": "sam2/sam2/benchmark.py",
+      "source_sha256": "eba42a58c402afb076df36a2ec83b4e184d766b0aa0d986a330b0f0ee25ed793",
+      "repository_sha256": "eba42a58c402afb076df36a2ec83b4e184d766b0aa0d986a330b0f0ee25ed793"
+    },
+    {
+      "path": "externals/sam2/sam2/build_sam.py",
+      "source": "sam2/sam2/build_sam.py",
+      "source_sha256": "d962a9ebc5b65aa03a8d74159742b9993b8affb44b205ba78685db8d199dc3a7",
+      "repository_sha256": "d962a9ebc5b65aa03a8d74159742b9993b8affb44b205ba78685db8d199dc3a7"
+    },
+    {
+      "path": "externals/sam2/sam2/configs/sam2/sam2_hiera_b+.yaml",
+      "source": "sam2/sam2/configs/sam2/sam2_hiera_b+.yaml",
+      "source_sha256": "58ae5539466e1da4b856346427a29a8f3675a0c1132ec0b81bc3911ee1775ce9",
+      "repository_sha256": "58ae5539466e1da4b856346427a29a8f3675a0c1132ec0b81bc3911ee1775ce9"
+    },
+    {
+      "path": "externals/sam2/sam2/configs/sam2/sam2_hiera_l.yaml",
+      "source": "sam2/sam2/configs/sam2/sam2_hiera_l.yaml",
+      "source_sha256": "32d7bf07be4e3717985f76052f740b90e4cfaf45588621b286de24962c2d2fd3",
+      "repository_sha256": "32d7bf07be4e3717985f76052f740b90e4cfaf45588621b286de24962c2d2fd3"
+    },
+    {
+      "path": "externals/sam2/sam2/configs/sam2/sam2_hiera_s.yaml",
+      "source": "sam2/sam2/configs/sam2/sam2_hiera_s.yaml",
+      "source_sha256": "03d12a4ac21f82eb1e9d5c3c831983986b05812c861b5893a02bc3bdd9ecac4e",
+      "repository_sha256": "03d12a4ac21f82eb1e9d5c3c831983986b05812c861b5893a02bc3bdd9ecac4e"
+    },
+    {
+      "path": "externals/sam2/sam2/configs/sam2/sam2_hiera_t.yaml",
+      "source": "sam2/sam2/configs/sam2/sam2_hiera_t.yaml",
+      "source_sha256": "829706a768d641fa8644e194d1d69322af5d837b099e8731af1476227f7c5691",
+      "repository_sha256": "829706a768d641fa8644e194d1d69322af5d837b099e8731af1476227f7c5691"
+    },
+    {
+      "path": "externals/sam2/sam2/configs/sam2.1/sam2.1_hiera_b+.yaml",
+      "source": "sam2/sam2/configs/sam2.1/sam2.1_hiera_b+.yaml",
+      "source_sha256": "ef47e14197a65c1fd542e1862270ee851c2b15e571b2c58ceb0329d15be33769",
+      "repository_sha256": "ef47e14197a65c1fd542e1862270ee851c2b15e571b2c58ceb0329d15be33769"
+    },
+    {
+      "path": "externals/sam2/sam2/configs/sam2.1/sam2.1_hiera_l.yaml",
+      "source": "sam2/sam2/configs/sam2.1/sam2.1_hiera_l.yaml",
+      "source_sha256": "4c9983b04adddc5e4586c7809a4c21dd90975bccc5026aea3c22232783c18112",
+      "repository_sha256": "4c9983b04adddc5e4586c7809a4c21dd90975bccc5026aea3c22232783c18112"
+    },
+    {
+      "path": "externals/sam2/sam2/configs/sam2.1/sam2.1_hiera_s.yaml",
+      "source": "sam2/sam2/configs/sam2.1/sam2.1_hiera_s.yaml",
+      "source_sha256": "592306d059a2df49898fefcb939c11abc9dfc8fd962bc77c31d132e68cb4320a",
+      "repository_sha256": "592306d059a2df49898fefcb939c11abc9dfc8fd962bc77c31d132e68cb4320a"
+    },
+    {
+      "path": "externals/sam2/sam2/configs/sam2.1/sam2.1_hiera_t.yaml",
+      "source": "sam2/sam2/configs/sam2.1/sam2.1_hiera_t.yaml",
+      "source_sha256": "9eb1c5e9db577925464492ccbbf6810731bcbbde31325fb8d297d78c3eb5d9dc",
+      "repository_sha256": "9eb1c5e9db577925464492ccbbf6810731bcbbde31325fb8d297d78c3eb5d9dc"
+    },
+    {
+      "path": "externals/sam2/sam2/configs/sam2.1_training/sam2.1_hiera_b+_MOSE_finetune.yaml",
+      "source": "sam2/sam2/configs/sam2.1_training/sam2.1_hiera_b+_MOSE_finetune.yaml",
+      "source_sha256": "a3e2653cc96fbdde7a498da3d48e9db69d04baa9bfaab83ffde68a0022289361",
+      "repository_sha256": "a3e2653cc96fbdde7a498da3d48e9db69d04baa9bfaab83ffde68a0022289361"
+    },
+    {
+      "path": "externals/sam2/sam2/csrc/connected_components.cu",
+      "source": "sam2/sam2/csrc/connected_components.cu",
+      "source_sha256": "cf9bb101204537262ad46111828d365f67c88726b31efc16af13c8bfbf77a553",
+      "repository_sha256": "cf9bb101204537262ad46111828d365f67c88726b31efc16af13c8bfbf77a553"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/__init__.py",
+      "source": "sam2/sam2/modeling/__init__.py",
+      "source_sha256": "9f2c336d52111ef51bae5b4959d8941968e9e26638c681de5388c58d3080624d",
+      "repository_sha256": "9f2c336d52111ef51bae5b4959d8941968e9e26638c681de5388c58d3080624d"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/backbones/__init__.py",
+      "source": "sam2/sam2/modeling/backbones/__init__.py",
+      "source_sha256": "9f2c336d52111ef51bae5b4959d8941968e9e26638c681de5388c58d3080624d",
+      "repository_sha256": "9f2c336d52111ef51bae5b4959d8941968e9e26638c681de5388c58d3080624d"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/backbones/hieradet.py",
+      "source": "sam2/sam2/modeling/backbones/hieradet.py",
+      "source_sha256": "e793e2a2545cf4e2dedcd0d0654e6cd6b118179d94d5a5eeffa29b7cb6b96fd0",
+      "repository_sha256": "e793e2a2545cf4e2dedcd0d0654e6cd6b118179d94d5a5eeffa29b7cb6b96fd0"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/backbones/image_encoder.py",
+      "source": "sam2/sam2/modeling/backbones/image_encoder.py",
+      "source_sha256": "5920c2ad317cebad34a747f10426ece14303b59a813ae79c5e95dc6b5d171663",
+      "repository_sha256": "5920c2ad317cebad34a747f10426ece14303b59a813ae79c5e95dc6b5d171663"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/backbones/utils.py",
+      "source": "sam2/sam2/modeling/backbones/utils.py",
+      "source_sha256": "967625e0701b240c0169574845bc18e61e18a41c128198239363bc8b96fdc662",
+      "repository_sha256": "967625e0701b240c0169574845bc18e61e18a41c128198239363bc8b96fdc662"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/memory_attention.py",
+      "source": "sam2/sam2/modeling/memory_attention.py",
+      "source_sha256": "4c82b71c2cd518011cdb4341c75f18e6b8b6de411de96e4aec424bfe9ed9a0be",
+      "repository_sha256": "4c82b71c2cd518011cdb4341c75f18e6b8b6de411de96e4aec424bfe9ed9a0be"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/memory_encoder.py",
+      "source": "sam2/sam2/modeling/memory_encoder.py",
+      "source_sha256": "2803cd030e6a067978f272cb35c24b0690b1e7eecb51fdbd224a74cab6f31e3f",
+      "repository_sha256": "2803cd030e6a067978f272cb35c24b0690b1e7eecb51fdbd224a74cab6f31e3f"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/position_encoding.py",
+      "source": "sam2/sam2/modeling/position_encoding.py",
+      "source_sha256": "e19abfd3a2758755d9182cf0355bdfa28b6db61851e31546fefee9ca27f27ebf",
+      "repository_sha256": "e19abfd3a2758755d9182cf0355bdfa28b6db61851e31546fefee9ca27f27ebf"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/sam/__init__.py",
+      "source": "sam2/sam2/modeling/sam/__init__.py",
+      "source_sha256": "9f2c336d52111ef51bae5b4959d8941968e9e26638c681de5388c58d3080624d",
+      "repository_sha256": "9f2c336d52111ef51bae5b4959d8941968e9e26638c681de5388c58d3080624d"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/sam/mask_decoder.py",
+      "source": "sam2/sam2/modeling/sam/mask_decoder.py",
+      "source_sha256": "b53d185daee38021270aa57f607281418b5544bfe549d91abd6dbcea48420432",
+      "repository_sha256": "b53d185daee38021270aa57f607281418b5544bfe549d91abd6dbcea48420432"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/sam/prompt_encoder.py",
+      "source": "sam2/sam2/modeling/sam/prompt_encoder.py",
+      "source_sha256": "4dd05bad47c1b0a16cc6f4c095b877433e7d96f80160dc06f4b7f9559b0c3b3b",
+      "repository_sha256": "4dd05bad47c1b0a16cc6f4c095b877433e7d96f80160dc06f4b7f9559b0c3b3b"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/sam/transformer.py",
+      "source": "sam2/sam2/modeling/sam/transformer.py",
+      "source_sha256": "47f32206d8286c0538ed789273e607214a3e41892d3c907a8e7a6cfdd4240ca0",
+      "repository_sha256": "47f32206d8286c0538ed789273e607214a3e41892d3c907a8e7a6cfdd4240ca0"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/sam2_base.py",
+      "source": "sam2/sam2/modeling/sam2_base.py",
+      "source_sha256": "5ac8be9a6e9935d2f4ee6efa1edff87915aa7cdd7da1207e1be21af6462093f2",
+      "repository_sha256": "5ac8be9a6e9935d2f4ee6efa1edff87915aa7cdd7da1207e1be21af6462093f2"
+    },
+    {
+      "path": "externals/sam2/sam2/modeling/sam2_utils.py",
+      "source": "sam2/sam2/modeling/sam2_utils.py",
+      "source_sha256": "74175905345361fe8fd2bbf3aecd772552b5b1c68b6cf5081953230c8fd82c10",
+      "repository_sha256": "74175905345361fe8fd2bbf3aecd772552b5b1c68b6cf5081953230c8fd82c10"
+    },
+    {
+      "path": "externals/sam2/sam2/sam2_hiera_b+.yaml",
+      "source": "sam2/sam2/sam2_hiera_b+.yaml",
+      "source_sha256": "212887bd5b1d90c07a3439a911593ec6ec8a586cce0b12799f1ebec38bbe401d",
+      "repository_sha256": "212887bd5b1d90c07a3439a911593ec6ec8a586cce0b12799f1ebec38bbe401d"
+    },
+    {
+      "path": "externals/sam2/sam2/sam2_hiera_l.yaml",
+      "source": "sam2/sam2/sam2_hiera_l.yaml",
+      "source_sha256": "0e313563f8f467c382c81192a0e2aff4624dda2b23218f1a78df30ebe4b4eb1a",
+      "repository_sha256": "0e313563f8f467c382c81192a0e2aff4624dda2b23218f1a78df30ebe4b4eb1a"
+    },
+    {
+      "path": "externals/sam2/sam2/sam2_hiera_s.yaml",
+      "source": "sam2/sam2/sam2_hiera_s.yaml",
+      "source_sha256": "6fff1ab952d4ff7bc4bf8bb480f6283bcf12a763057f5bb697b25151a20f7608",
+      "repository_sha256": "6fff1ab952d4ff7bc4bf8bb480f6283bcf12a763057f5bb697b25151a20f7608"
+    },
+    {
+      "path": "externals/sam2/sam2/sam2_hiera_t.yaml",
+      "source": "sam2/sam2/sam2_hiera_t.yaml",
+      "source_sha256": "4ba0a249a1da9a6cc4070d47894808f206f67249d0c6fda21c6280af692dd77e",
+      "repository_sha256": "4ba0a249a1da9a6cc4070d47894808f206f67249d0c6fda21c6280af692dd77e"
+    },
+    {
+      "path": "externals/sam2/sam2/sam2_image_predictor.py",
+      "source": "sam2/sam2/sam2_image_predictor.py",
+      "source_sha256": "edd7281ec91bea1c5c9ee498b09c823b534fe31e36fc3dfbe7696e6d7a216bef",
+      "repository_sha256": "edd7281ec91bea1c5c9ee498b09c823b534fe31e36fc3dfbe7696e6d7a216bef"
+    },
+    {
+      "path": "externals/sam2/sam2/sam2_video_predictor.py",
+      "source": "sam2/sam2/sam2_video_predictor.py",
+      "source_sha256": "1e2de167d91974e96de21b51237e20f1a30f9b37fae706c854974386b4800d50",
+      "repository_sha256": "1e2de167d91974e96de21b51237e20f1a30f9b37fae706c854974386b4800d50"
+    },
+    {
+      "path": "externals/sam2/sam2/sam2_video_predictor_legacy.py",
+      "source": "sam2/sam2/sam2_video_predictor_legacy.py",
+      "source_sha256": "ec0992b44ac2bdc3db0f0693e94b15e3e813e30ab5f3f57f878857043161e1d4",
+      "repository_sha256": "ec0992b44ac2bdc3db0f0693e94b15e3e813e30ab5f3f57f878857043161e1d4"
+    },
+    {
+      "path": "externals/sam2/sam2/utils/__init__.py",
+      "source": "sam2/sam2/utils/__init__.py",
+      "source_sha256": "9f2c336d52111ef51bae5b4959d8941968e9e26638c681de5388c58d3080624d",
+      "repository_sha256": "9f2c336d52111ef51bae5b4959d8941968e9e26638c681de5388c58d3080624d"
+    },
+    {
+      "path": "externals/sam2/sam2/utils/amg.py",
+      "source": "sam2/sam2/utils/amg.py",
+      "source_sha256": "15649a414e87d38b2863f8408b16be1e1c16b2c4f9faef154e108d81f194e438",
+      "repository_sha256": "15649a414e87d38b2863f8408b16be1e1c16b2c4f9faef154e108d81f194e438"
+    },
+    {
+      "path": "externals/sam2/sam2/utils/misc.py",
+      "source": "sam2/sam2/utils/misc.py",
+      "source_sha256": "ff2d441d16cedd6cc50a4bcdcbff29a1cb4d46d40c1123c3a471f265bbed3b0e",
+      "repository_sha256": "ff2d441d16cedd6cc50a4bcdcbff29a1cb4d46d40c1123c3a471f265bbed3b0e"
+    },
+    {
+      "path": "externals/sam2/sam2/utils/transforms.py",
+      "source": "sam2/sam2/utils/transforms.py",
+      "source_sha256": "c200d1931d501ea70cd73a84128dfa20f92b3f1f4e2d74760d032410fda0d0be",
+      "repository_sha256": "c200d1931d501ea70cd73a84128dfa20f92b3f1f4e2d74760d032410fda0d0be"
+    },
+    {
+      "path": "externals/sam2/LICENSE",
+      "source": "sam2/LICENSE",
+      "source_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+      "repository_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    {
+      "path": "externals/sam2/LICENSE_cctorch",
+      "source": "sam2/LICENSE_cctorch",
+      "source_sha256": "b4d90f9c25b30d3fbd412f50dd4204f17e16af2813f4f3fe25b2f0d0f97e35fd",
+      "repository_sha256": "b4d90f9c25b30d3fbd412f50dd4204f17e16af2813f4f3fe25b2f0d0f97e35fd"
+    },
+    {
+      "path": "externals/sam2/README.md",
+      "source": "sam2/README.md",
+      "source_sha256": "8187448c95ac50ea30d9c591e550fd2c07620269387489cf9b46132fb178bd55",
+      "repository_sha256": "8187448c95ac50ea30d9c591e550fd2c07620269387489cf9b46132fb178bd55"
+    },
+    {
+      "path": "externals/sam2/INSTALL.md",
+      "source": "sam2/INSTALL.md",
+      "source_sha256": "44cc140e16a37a5d872ffc9bc8ec255565848278f8a5f20a84296c722debf40b",
+      "repository_sha256": "44cc140e16a37a5d872ffc9bc8ec255565848278f8a5f20a84296c722debf40b"
+    },
+    {
+      "path": "externals/sam2/pyproject.toml",
+      "source": "sam2/pyproject.toml",
+      "source_sha256": "1585b90b808aa18902556732f5914fbd601a5b07beb8c4fdf32a2a02086feedc",
+      "repository_sha256": "1585b90b808aa18902556732f5914fbd601a5b07beb8c4fdf32a2a02086feedc"
+    },
+    {
+      "path": "externals/sam2/setup.py",
+      "source": "sam2/setup.py",
+      "source_sha256": "5e8fa9eea2d742bcaccbfe054839cf8760b5fea28cde49e8bc43e4e03eb8c7c6",
+      "repository_sha256": "5e8fa9eea2d742bcaccbfe054839cf8760b5fea28cde49e8bc43e4e03eb8c7c6"
+    },
+    {
+      "path": "externals/sam2/MANIFEST.in",
+      "source": "sam2/MANIFEST.in",
+      "source_sha256": "40263ba30b07de19bec5a47de531ea4f431ae2ad1a1bf25298639d4ad6177f48",
+      "repository_sha256": "40263ba30b07de19bec5a47de531ea4f431ae2ad1a1bf25298639d4ad6177f48"
+    },
+    {
+      "path": "third_party/wilor/license.txt",
+      "source": "wilor-upstream/license.txt",
+      "source_sha256": "0bb835f5ed7272947a23d92d0e74bbdadcbf0beb9235c0735c32d1310a4bceda",
+      "repository_sha256": "0bb835f5ed7272947a23d92d0e74bbdadcbf0beb9235c0735c32d1310a4bceda"
+    },
+    {
+      "path": "third_party/wilor/requirements.txt",
+      "source": "wilor-upstream/requirements.txt",
+      "source_sha256": "16e569b5e6284b09a67a6ff1a2ab8dfa49aa6a01d8915029afdeb7b31481dc02",
+      "repository_sha256": "16e569b5e6284b09a67a6ff1a2ab8dfa49aa6a01d8915029afdeb7b31481dc02"
+    },
+    {
+      "path": "third_party/wilor/README.md",
+      "source": "wilor-upstream/README.md",
+      "source_sha256": "fdc196b6213f9a9fb7fbfd85b7df3e560cc01b2a917170f6d527150c568cdaae",
+      "repository_sha256": "fdc196b6213f9a9fb7fbfd85b7df3e560cc01b2a917170f6d527150c568cdaae"
+    }
+  ],
+  "deployment_only_changes": [
+    "tools/sam_ellen_bridge.py",
+    "tools/enhance_sam_take_with_wilor.py",
+    "tools/wilor_temporal.py",
+    "tools/sam_hand_depth_worker.py",
+    "tools/sam_punch_video_worker.py",
+    "tools/run_wilor_video_test.py",
+    "tools/sam_ellen_speech.py",
+    "tools/sam_ellen_finger_repair.py",
+    "services/sam-3d-body/local_app/face_capture.py",
+    "services/sam-3d-body/local_app/hand_capture.py",
+    "services/sam-3d-body/local_app/public_backend.py"
+  ]
+}

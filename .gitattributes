@@ -1,0 +1,13 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.ps1 text eol=crlf
+
+# Preserve byte-for-byte source snapshots and their recorded SHA-256 on every OS.
+tools/** -text
+services/** -text
+externals/** -text
+third_party/** -text
