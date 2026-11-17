@@ -293,6 +293,27 @@ class SAMApplySpeechGain(bpy.types.Operator):
             return {'CANCELLED'}
 
 
+class SAMApplySpeechSpeed(bpy.types.Operator):
+    bl_idname = 'sam_ellen.apply_speech_speed'
+    bl_label = '仅应用口型速度'
+    bl_description = '从原始口型调整变化速度；不重新识别视频或分析音频，也不改变台词时长'
+    bl_options = {'REGISTER', 'UNDO'}
+    mesh_name: StringProperty(options={'HIDDEN'})
+
+    def execute(self, context):
+        try:
+            import ellen_expression_timeline as expr
+            mesh = context.scene.objects.get(self.mesh_name) if self.mesh_name else expr.face_object(context.scene)
+            expr.apply_speech_gain(context.scene, mesh)
+            message = f'已应用口型变化速度：{mesh.ellen_expression_track.speech_speed:.2f}'
+            context.scene.sam_ellen_editing.status = message
+            self.report({'INFO'}, message)
+            return {'FINISHED'}
+        except Exception as error:
+            self.report({'ERROR'}, str(error))
+            return {'CANCELLED'}
+
+
 def draw_video_audio_options(layout, scene):
     settings = scene.sam_ellen_editing
     layout.prop(settings, 'video_audio')
@@ -317,7 +338,7 @@ class SAMEditingPanel(bpy.types.Panel):
         s = context.scene.sam_ellen_editing
         import ellen_expression_timeline as expr
         box = layout.box()
-        box.label(text='口型幅度调整')
+        box.label(text='口型幅度与速度')
         if hasattr(context.scene, 'ellen_expression_object'):
             box.prop(context.scene, 'ellen_expression_object', text='说话角色')
         expr.draw_live_speech_gain(box, context.scene)
@@ -359,7 +380,7 @@ class SAMEditingPanel(bpy.types.Panel):
 
 
 CLASSES = (SAMEditingSettings, SAMImportAudio, SAMAudioCurrentFrame, SAMRemoveAudio,
-           SAMPrepareMovie, SAMDeleteLast, SAMApplySpeechGain, SAMEditingPanel)
+           SAMPrepareMovie, SAMDeleteLast, SAMApplySpeechGain, SAMApplySpeechSpeed, SAMEditingPanel)
 
 from sam_ellen_audio_lipsync import CLASSES as LIPSYNC_CLASSES
 CLASSES += LIPSYNC_CLASSES

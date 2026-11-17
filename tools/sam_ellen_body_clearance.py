@@ -9,6 +9,9 @@ import numpy as np
 from mathutils import Vector, Quaternion
 
 PREFIXES=('Arm_','Elbow_','Wrist_','ArmTwist_','HandTwist_')
+# Only the socket itself blends into the torso. The former .55 exemption
+# concealed a cross-chest upper arm even when the elbow was outside the body.
+SOCKET_FRACTION=.12
 
 
 def torso_geometry(rig):
@@ -83,13 +86,14 @@ def arm_clearance(a,e,w,envelope):
     upper=(Vector(e)-Vector(a)).length;lower=(Vector(w)-Vector(e)).length
     # The upper sleeve/shoulder socket blends into the torso. Exempt its
     # proximal portion; protect the elbow and whole forearm with finite radii.
-    return min(_link_margin(a,e,envelope,upper*.065,.55),
+    return min(_link_margin(a,e,envelope,upper*.065,SOCKET_FRACTION),
                _link_margin(e,w,envelope,lower*.085))
 
 
 def _candidate_clearance(a,elbows,wrists,envelope,upper,lower):
     """Vectorized continuous-segment search for all candidate elbow branches."""
     elbows=np.asarray(elbows);wrists=np.asarray(wrists)
+    if not len(envelope):return np.full(len(elbows),.1)
     def margins(starts,ends,radius,begin):
         p=starts@_normals.T;v=(ends-starts)@_normals.T
         low=np.full((len(starts),len(envelope)),begin);high=np.ones_like(low)
@@ -99,8 +103,30 @@ def _candidate_clearance(a,elbows,wrists,envelope,upper,lower):
             rv=(p[:,None,:]+right[:,:,None]*v[:,None,:]-envelope[None,:,:]-radius).max(2)
             mask=lv<rv;high=np.where(mask,right,high);low=np.where(mask,low,left)
         return (p[:,None,:]+((low+high)*.5)[:,:,None]*v[:,None,:]-envelope[None,:,:]-radius).max(2).min(1)
-    return np.minimum(margins(np.repeat(np.asarray(a)[None,:],len(elbows),axis=0),elbows,upper*.065,.55),
+    return np.minimum(margins(np.repeat(np.asarray(a)[None,:],len(elbows),axis=0),elbows,upper*.065,SOCKET_FRACTION),
                       margins(elbows,wrists,lower*.085,0.))
+
+
+def chains_safe(a,elbows,wrists,envelope,upper,lower,margin=0.):
+    """Exact segment/convex-slab intersection, batched for temporal edges.
+
+    Intersect the intervals satisfying every supporting half-space. Checking
+    endpoints alone misses a link that enters and leaves the chest.
+    """
+    elbows=np.asarray(elbows,float);wrists=np.asarray(wrists,float)
+    if not len(envelope):return np.ones(len(elbows),bool)
+    def clear(starts,ends,radius,begin):
+        p=np.asarray(starts)@_normals.T
+        v=(ends-starts)@_normals.T
+        delta=envelope[None,:,:]+radius+margin-p[:,None,:]
+        slope=v[:,None,:]
+        limits=np.divide(delta,slope,out=np.zeros_like(delta),where=abs(slope)>1e-12)
+        lo=np.maximum(begin,np.where(slope< -1e-12,limits,-np.inf).max(2))
+        hi=np.minimum(1.,np.where(slope>1e-12,limits,np.inf).min(2))
+        outside=((abs(slope)<=1e-12)&(delta<0)).any(2)
+        return (~((lo<=hi)&~outside)).all(1)
+    starts=np.broadcast_to(np.asarray(a),elbows.shape)
+    return clear(starts,elbows,upper*.065,SOCKET_FRACTION)&clear(elbows,wrists,lower*.085,0.)
 
 
 def support_envelope(data,side):

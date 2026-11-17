@@ -113,6 +113,8 @@ def stop_work(cancel=True):
         (state.get('alignment_log') or state.get('entry_log')).close()
     if state.get('bake'):
         state['bake'].close()
+    if state.get('eyes'):
+        state['eyes'].close()
     if cancel and state.get('job'):
         try:
             request(state['scene'], '/sam3d/jobs/'+state['job']+'/cancel', {})
@@ -186,8 +188,31 @@ def profile_prop(layout, settings, name, **kwargs):
     row.prop(settings, name, **kwargs)
 
 
+def sync_capture_camera(scene):
+    """Bind an explicit shared-profile import to the current scene's shot.
+
+    Protected character files skip automatic load-time profile migration.
+    That must not leave an explicitly requested import using another set's
+    saved camera. Preserve independently selected gaze/punch targets.
+    """
+    settings = scene.sam_ellen
+    camera = scene.camera
+    if (not settings.use_shared_pipeline or camera is None
+            or camera.type != 'CAMERA' or camera.name not in scene.objects):
+        return
+    previous = settings.screen_camera
+    if previous == camera:
+        return
+    settings.screen_camera = camera
+    if previous is not None:
+        for name in ('gaze_camera', 'punch_camera'):
+            if getattr(settings, name) == previous:
+                setattr(settings, name, camera)
+
+
 def begin_bake(scene, path, reapply=False):
     global _work
+    sync_capture_camera(scene)
     ensure_pipeline(scene)
     settings = scene.sam_ellen
     rig = settings.rig
@@ -516,6 +541,11 @@ def head_settings_pending(s):
     try:
         old = json.loads(action.get('sam_camera_gaze', 'null'))
         new = gaze_options(s)
+        # Eye intervals/follow strength have a separate lightweight apply path.
+        head_keys = ('camera', 'motion', 'noise_enabled', 'noise_amplitude', 'noise_speed',
+                     'noise_head', 'noise_seed', 'noise_randomness')
+        old = {k: old.get(k) for k in head_keys} if old and old.get('head_tracking') else None
+        new = {k: new.get(k) for k in head_keys} if new and new.get('head_tracking') else None
         if (old is None) != (new is None):
             return True
         if new and any(abs(old.get(k, -100)-v) > 1e-5 if isinstance(v, (int, float))
@@ -534,6 +564,23 @@ def tick():
     scene = _work['scene']
     settings = scene.sam_ellen
     try:
+        if 'eyes' in _work:
+            deadline = time.monotonic() + .04
+            while time.monotonic() < deadline:
+                try:
+                    done, total = next(_work['eyes'])
+                    settings.progress = min(.99, done / max(total, 1))
+                    settings.status = f'仅更新眼睛视线 {done}/{total}'
+                except StopIteration as result:
+                    settings.progress = 1
+                    settings.status = f'眼睛视线已更新：{result.value} 帧；身体、头部、口型和声音保留'
+                    _work = None
+                    if not bpy.app.background:
+                        bpy.ops.ed.undo_push(message='仅应用眼睛视线')
+                    redraw()
+                    return None
+            redraw()
+            return .01
         if 'entry_upgrade' in _work:
             if time.monotonic()-_work['entry_started']>120:
                 raise RuntimeError('入镜画面检查超时；已保留原动作')
@@ -711,8 +758,9 @@ def tick():
     except Exception as error:
         import traceback
         traceback.print_exc()
+        eye_update = 'eyes' in (_work or {})
         stop_work(cancel=True)
-        settings.status = '新动作未导入，已保留旧动作：'+str(error)
+        settings.status = ('眼睛视线未更改：' if eye_update else '新动作未导入，已保留旧动作：')+str(error)
         redraw()
         return None
 
@@ -1195,7 +1243,13 @@ class SAMPanel(bpy.types.Panel):
                 box.prop(s, 'gaze_noise_eyes')
                 box.prop(s, 'gaze_noise_seed')
         if s.take_path:
-            box.operator('sam_ellen.reapply', text='应用头部 / 看向镜头', icon='CHECKMARK')
+            if not s.gaze_enabled:
+                box.operator('sam_ellen.apply_eye_contact', text='恢复原眼睛视线', icon='LOOP_BACK')
+            from sam_ellen_gaze import eye_settings_pending
+            eye_pending = eye_settings_pending(context.scene)
+            box.label(text='眼睛视线待应用' if eye_pending else '眼睛视线已应用',
+                      icon='TIME' if eye_pending else 'CHECKMARK')
+            box.operator('sam_ellen.reapply', text='重新适配头部（整段动作）', icon='FILE_REFRESH')
             pending = head_settings_pending(s)
             box.label(text='头部设置待应用' if pending else '头部设置已应用',
                       icon='TIME' if pending else 'CHECKMARK')
@@ -1274,10 +1328,13 @@ class SAMPanel(bpy.types.Panel):
         row = layout.row(align=True)
         row.operator('xr_ellen.viewport', text='快速预览', icon='SHADING_SOLID').mode = 'SOLID'
         row.operator('xr_ellen.viewport', text='材质预览', icon='SHADING_TEXTURE').mode = 'MATERIAL'
-        if hasattr(context.scene, 'wiggle_enable'):
-            row = layout.row()
-            row.enabled = not bool(_work)
-            row.prop(context.scene, 'wiggle_enable', text='头发 / 衣带 / 尾巴物理')
+        if hasattr(context.scene, 'ellen_physics') and __import__('ellen_physics').manages(context.scene):
+            import ellen_physics
+            physics = layout.column()
+            physics.enabled = not bool(_work)
+            ellen_physics.draw(physics, context.scene)
+        elif hasattr(context.scene, 'wiggle_enable'):
+            layout.prop(context.scene, 'wiggle_enable', text='头发 / 衣带 / 尾巴物理')
         column = layout.column()
         column.enabled = not bool(_work)
         if s.take_path:
@@ -1318,7 +1375,7 @@ def after_load(_):
 
 @persistent
 def before_save(_):
-    if _work and (_work.get('bake') or _work.get('alignment_upgrade') or _work.get('entry_upgrade')):
+    if _work and (_work.get('bake') or _work.get('eyes') or _work.get('alignment_upgrade') or _work.get('entry_upgrade')):
         scene = _work['scene']
         stop_work()
         scene.sam_ellen.status = '生成已取消，原动作已恢复'
@@ -1336,6 +1393,8 @@ def initial_pipeline_sync():
 
 
 def register():
+    import ellen_physics
+    ellen_physics.register('sam')
     for cls in CLASSES:
         bpy.utils.register_class(cls)
     bpy.types.Scene.sam_ellen = PointerProperty(type=SAMSettings)
@@ -1365,3 +1424,5 @@ def unregister():
     del bpy.types.Scene.sam_ellen
     for cls in reversed(CLASSES):
         bpy.utils.unregister_class(cls)
+    import ellen_physics
+    ellen_physics.unregister('sam')

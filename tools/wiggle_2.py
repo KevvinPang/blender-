@@ -26,6 +26,14 @@ from bpy.app.handlers import persistent
 # session alive until completion, but advance physics only on that graph.
 _render_first_frame = set()
 
+
+def unified_ellen(scene):
+    # Ellen's shared profile calls the existing spring/collider functions
+    # itself, together with skirt/tail; never evaluate it twice.
+    import sys
+    module = sys.modules.get('ellen_physics')
+    return bool(module and module.manages(scene))
+
 #return m2 in m1 space
 def relative_matrix(m1,m2):
     return (m2.inverted() @ m1).inverted()
@@ -476,6 +484,7 @@ def constrain(b,i,dg):
         
 @persistent
 def wiggle_pre(scene, depsgraph=None):
+    if unified_ellen(scene): return
     # A disabled solver must not tag the animated armature for another
     # evaluation. Baked scenes need no cache writes on either graph.
     if not scene.wiggle_enable:
@@ -559,6 +568,7 @@ def _flush_render_pose(rigs, dg):
 
 @persistent                
 def wiggle_post(scene,dg):
+    if unified_ellen(scene): return
     if not scene.wiggle_enable: return
     if scene.wiggle.is_rendering and dg.mode != 'RENDER': return
     if scene.as_pointer() in _render_first_frame:
@@ -632,6 +642,7 @@ def wiggle_post(scene,dg):
                 
 @persistent
 def wiggle_render_init(scene, depsgraph=None):
+    if unified_ellen(scene): return
     if scene.wiggle_enable or scene.get('SecondaryPhysicsBaked'):
         scene.render.use_lock_interface = True
         # A timeline playback timer must not evaluate a viewport pose while
@@ -857,6 +868,10 @@ class WIGGLE_PT_Settings(WigglePanel, bpy.types.Panel):
         
     def draw(self,context):
         row = self.layout.row()
+        if unified_ellen(context.scene):
+            row.prop(context.scene.ellen_physics, 'enabled', text='统一人物物理')
+            row.label(text='设置见 SAM / 角色操控')
+            return
         icon = 'HIDE_ON' if not context.scene.wiggle_enable else 'SCENE_DATA'
         row.prop(context.scene, "wiggle_enable", icon=icon, text="",emboss=False)
         if not context.scene.wiggle_enable:

@@ -349,7 +349,8 @@ def correct_body(channels, rig, data, options):
         yield i+1, len(times)
 
 
-def correct_gaze(scratch, rig, channels, data, options, cameras, eye_base=None):
+def correct_gaze(scratch, rig, channels, data, options, cameras, eye_base=None, sample_pose=None,
+                 independent_eyes=False):
     from sam_ellen_gaze import merged_ranges, contact_weight
     from sam_ellen_sequence import timeline_frame
     away_ranges = merged_ranges(options.get('away_ranges', []))
@@ -411,6 +412,8 @@ def correct_gaze(scratch, rig, channels, data, options, cameras, eye_base=None):
             summed += Vector(tuple(q))
         center_rotation = Quaternion(tuple(summed)).normalized()
     for i, row in enumerate(data['frames']):
+        if sample_pose:
+            sample_pose(i)
         weight = contact_weight(timeline_frame(data, row['time']), away_ranges, away_fade)
         frame = 1+(row['time']-data['frames'][0]['time'])*data['fps']
         elapsed = row['time']-data['frames'][0]['time']
@@ -474,7 +477,8 @@ def correct_gaze(scratch, rig, channels, data, options, cameras, eye_base=None):
                 swing = Quaternion().slerp(swing, eye_limit/swing.angle)
             swing = Quaternion().slerp(swing, options['eyes'])
             set_global_rotation(bone, swing @ neutral)
-            scratch.view_layers[0].update()
+            if not independent_eyes:
+                scratch.view_layers[0].update()
         for bone in changed:
             q = bone.rotation_quaternion.copy()
             if weight < 1:
@@ -1078,6 +1082,14 @@ def bake_steps(scene, rig, data, smoothing=0.0, capture_mode='BOTH', inactive_po
             for side, done, total in stabilize_arms(scene, scratch, rig, channels, data,
                     protected=protected, allowed=allowed, sides=stable_sides, report=motion_report):
                 yield len(data['frames'])*passes,len(data['frames'])*passes
+            from sam_ellen_arm_trajectory import solve_trajectory
+            for side,done,total in solve_trajectory(scratch,rig,channels,data,screen_cameras,
+                    image_options,protected=protected,allowed=allowed,sides=stable_sides,report=motion_report):
+                yield len(data['frames'])*passes,len(data['frames'])*passes
+            from sam_ellen_arm_stability import stabilize_twist
+            for side,done,total in stabilize_twist(scratch,rig,channels,data,
+                    protected=protected,allowed=allowed,sides=stable_sides,report=motion_report):
+                yield len(data['frames'])*passes,len(data['frames'])*passes
         else:
             image_report=[]
 
@@ -1104,6 +1116,12 @@ def bake_steps(scene, rig, data, smoothing=0.0, capture_mode='BOTH', inactive_po
             put_curve(action, target_rig, bone, 'location', [(1, tuple(base.translation)), (last, tuple(base.translation))])
             # Preserve existing scale as a constant, never animate it from SAM.
             put_curve(action, target_rig, bone, 'scale', [(1, tuple(base.to_scale())), (last, tuple(base.to_scale()))])
+        if screen and screen.get('space')=='FRAME':
+            from sam_ellen_arm_curve import smooth_keys
+            from sam_ellen_arm_policy import PREFIXES
+            for side in stable_sides:
+                locked=protected[side]|~allowed
+                for prefix in PREFIXES:smooth_keys(action,target_rig.pose.bones[prefix+side],locked)
         action['sam_video'] = data['video']
         action['sam_job_id'] = data['job_id']
         action['sam_source_start_seconds'] = data['frames'][0]['time']
@@ -1136,7 +1154,7 @@ def bake_steps(scene, rig, data, smoothing=0.0, capture_mode='BOTH', inactive_po
         action['sam_projection_report']=json.dumps(projection_report)
         action['sam_motion_continuity']=json.dumps({'version':2,'reports':motion_report})
         action['sam_arm_policy']=json.dumps({'version':2,'reference':'before first hand image fit',
-            'final_owner':'visibility / hinge lifetime / no later reconstruction',
+            'final_owner':'coupled image / whole-chain clearance / continuous trajectory',
             'frames':data.get('_sam_arm_policy',[])})
         if projection_report:action['sam_projection_closure']=json.dumps({'version':2,'camera':screen['camera']})
         action['sam_coordinated_body_report'] = json.dumps(coordinated_report)
@@ -1162,12 +1180,14 @@ def bake_steps(scene, rig, data, smoothing=0.0, capture_mode='BOTH', inactive_po
             if gaze:
                 scene.sam_ellen.gaze_camera = calibrated
         if screen and screen.get('landmarks') and screen.get('space') == 'FRAME' and not data.get('_sam_timeline'):
-            from sam_ellen_validation import validate_final, summary
+            from sam_ellen_validation import validate_final, summary, require_safe_arms
             final_report=[]
             for done,total in validate_final(scene,target_rig,data,screen,final_report):
                 yield len(data['frames'])*passes,len(data['frames'])*passes
             action['sam_final_validation']=json.dumps(summary(final_report))
             action['sam_final_scene_report']=json.dumps(final_report)
+            require_safe_arms(final_report,sides=stable_sides,
+                active_times=([r['time'] for r in data['frames']],allowed))
             for body_row, final_row in zip(coordinated_report, (r for r in final_report if not r.get('intermediate'))):
                 if 'face_center_px' in final_row and 'after_center_px' in body_row:
                     body_row['pose_after_center_px']=body_row['after_center_px']

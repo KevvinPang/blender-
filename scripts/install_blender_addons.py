@@ -15,15 +15,22 @@ ROOT=Path(__file__).resolve().parents[1]
 def install(destination):
     destination=Path(destination).expanduser().resolve()
     destination.mkdir(parents=True,exist_ok=True)
-    sources=sorted((ROOT/'tools').glob('*.py'))+[ROOT/'tools/sam_ellen_phone_grips.json']
-    existing=[p for p in sources if (destination/p.name).is_file()]
+    sources=sorted((ROOT/'tools').glob('*.py'))+[ROOT/'tools/sam_ellen_phone_grips.json',ROOT/'tools/sam_belle_phone_grips.json',ROOT/'tools/sam_phone_profiles.json']
+    sources+=sorted((ROOT/'tools/sam_phone_assets').rglob('*.blend'))
+    existing=[p for p in sources if (destination/p.relative_to(ROOT/'tools')).is_file()]
     backup=destination/'mocap_install_backups'/datetime.now().strftime('%Y%m%d_%H%M%S_%f')
     if existing or (destination/'mocap_runtime.json').exists():
         backup.mkdir(parents=True)
-        for p in existing:shutil.copy2(destination/p.name,backup/p.name)
+        for p in existing:
+            relative=p.relative_to(ROOT/'tools')
+            (backup/relative).parent.mkdir(parents=True,exist_ok=True)
+            shutil.copy2(destination/relative,backup/relative)
         if (destination/'mocap_runtime.json').exists():
             shutil.copy2(destination/'mocap_runtime.json',backup/'mocap_runtime.json')
-    for p in sources:shutil.copy2(p,destination/p.name)
+    for p in sources:
+        target=destination/p.relative_to(ROOT/'tools')
+        target.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copy2(p,target)
     (destination/'mocap_runtime.json').write_text(json.dumps({'repository':str(ROOT)},ensure_ascii=False,indent=2),encoding='utf8')
     return {'copied':len(sources),'addons':str(destination),'repository':str(ROOT),'restart_required':True}
 

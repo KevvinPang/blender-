@@ -196,7 +196,8 @@ def bake_face(scene, rig, data, settings, timeline=None):
         if hasattr(scene, 'ellen_expression_object'):
             import ellen_expression_timeline as expr
             scene.ellen_expression_object = mesh
-            if any(item.enabled for item in mesh.ellen_expression_track.items):
+            if (any(item.enabled for item in track.items) or track.global_speech_gain != 1
+                    or track.speech_speed != 1):
                 # Keep the preceding generated action available for rollback/restore.
                 track.generated_action = None
                 expr.rebuild(scene)

@@ -7,6 +7,13 @@ VERSION = 2
 PREFIXES = ('Arm_', 'Elbow_', 'Wrist_', 'ArmTwist_', 'HandTwist_')
 
 
+def supported_elbow_minimum(data,side,index):
+    """One evidence floor for graph candidates, smoothing and final validation."""
+    policy=data.get('_sam_arm_policy',[])
+    row=policy[index].get(side,{}) if len(policy)==len(data['frames']) else {}
+    return float(np.clip(row.get('active_minimum_elbow',row.get('minimum_elbow',35.)),35.,150.))
+
+
 def wrist_limit(elbow_degrees):
     """Avoid stacking a deep elbow fold with a second extreme wrist bend."""
     return float(np.clip(45.+.75*(elbow_degrees-35.),45.,60.))

@@ -113,11 +113,19 @@ def drive(owner, path, scene, name):
 
 
 def install_timing(scene, rig, display, enabled):
-    from sam_ellen_phone import TAG, apply_grip
+    from sam_ellen_phone import TAG, apply_grip, phone_profile
     s = scene.sam_ellen
     intervals = ranges(s) if enabled else []
     # Validate before changing any evaluated animation.
-    weights = weight_points(intervals, s.phone_fade_frames)
+    grip_intervals = intervals
+    if enabled and phone_profile(rig)[1].get('grip_transition_outside_visibility'):
+        # Complete the calibrated contact pose before the solid prop appears.
+        # Release after it disappears, so the case never slices through fingers
+        # while they blend between the captured hand and the fitted grip.
+        from sam_ellen_gaze import merged_ranges
+        padding = max(0, s.phone_fade_frames)
+        grip_intervals = merged_ranges([(a-padding, b+padding) for a, b in intervals])
+    weights = weight_points(grip_intervals, s.phone_fade_frames)
     visibility = {}
     for start, end in intervals:
         visibility[start-1] = 0.
@@ -299,6 +307,12 @@ def draw(layout, s):
     box.prop(s, 'phone_enabled')
     if not s.phone_enabled:
         return
+    if s.rig:
+        from sam_ellen_phone import phone_profile
+        try:
+            box.label(text='手机：' + phone_profile(s.rig)[1]['label'], icon='OUTLINER_OB_MESH')
+        except ValueError as error:
+            box.label(text=str(error), icon='ERROR')
     box.prop(s, 'phone_side')
     row = box.row()
     row.template_list('SAM_UL_phone_ranges', '', s, 'phone_ranges', s, 'phone_range_index', rows=2)

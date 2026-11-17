@@ -9,14 +9,51 @@ from mathutils import Matrix, Quaternion, Vector
 MODES = {'PHONE_LEFT': 'L', 'PHONE_RIGHT': 'R'}
 TAG = 'SAM Phone Grip'
 _reference = None
+_reference_path = None
 DISPLAY = '手机 / 人物一体显示'
+_catalog = None
+
+
+def phone_profile(rig):
+    """Resolve the prop from this rig, never from the project filename."""
+    global _catalog
+    if _catalog is None:
+        _catalog = json.loads(Path(__file__).with_name('sam_phone_profiles.json').read_text(encoding='utf8'))
+    selected = rig.get('sam_phone_profile', 'AUTO')
+    if selected != 'AUTO':
+        if selected not in _catalog:
+            raise ValueError('此角色的手机配置不存在：' + selected)
+        return selected, _catalog[selected]
+    labels = []
+    owner = rig
+    while owner:
+        if getattr(owner, 'mmd_type', '') == 'ROOT':
+            labels += [owner.mmd_root.name, owner.mmd_root.name_e]
+        owner = owner.parent
+    # Some imported skins lack an MMD model root; their rig name is still local
+    # to the selected character, unlike scene-wide studio metadata.
+    labels.append(rig.name.rsplit('_arm', 1)[0])
+    matches = set()
+    for key, profile in _catalog.items():
+        for label in labels:
+            value = label.strip().casefold()
+            if any(value == alias.casefold() or
+                   (alias in ('艾莲', 'エレン', 'ellen') and alias in value)
+                   for alias in profile['aliases']):
+                matches.add(key)
+    if len(matches) != 1:
+        raise ValueError('此角色尚未配置专属手机，请先添加角色手机配置；不会套用其他角色款式')
+    key = matches.pop()
+    return key, _catalog[key]
 
 
 def reference_profile(rig):
-    global _reference
-    if _reference is None:
-        path = Path(__file__).with_name('sam_ellen_phone_grips.json')
+    global _reference, _reference_path
+    _, catalog = phone_profile(rig)
+    path = Path(__file__).with_name(catalog.get('grip_reference', 'sam_ellen_phone_grips.json'))
+    if _reference is None or _reference_path != path:
         _reference = json.loads(path.read_text(encoding='utf8')) if path.exists() else {}
+        _reference_path = path
     profile = _reference
     for label, values in profile.get('rest', {}).items():
         bone = next((b for b in rig.pose.bones if b.mmd_bone.name_j == label), None)
@@ -52,6 +89,8 @@ def _left_finger_rotations(rig):
     mapped = bones(rig)
     wrist, frame = hand_frame(rig)
     up = frame.col[2]
+    _, profile = phone_profile(rig)
+    curl_sign = profile.get('grip_curl_sign', 1)
     result = {}
     for finger, angles in (('人指', (42, 88, 58)), ('中指', (43, 90, 62)),
                            ('薬指', (45, 88, 60)), ('小指', (48, 83, 55))):
@@ -59,7 +98,7 @@ def _left_finger_rotations(rig):
             bone = mapped['左'+finger+number].bone
             # Positive curl wraps the fingers from the rear edge toward the screen.
             axis = bone.matrix_local.to_3x3().inverted() @ up
-            result[bone.name] = Quaternion(axis, math.radians(angle))
+            result[bone.name] = Quaternion(axis, math.radians(angle)*curl_sign)
     # Keep the thumb behind the case first, wrap around its edge, then onto the screen.
     thumb = [mapped['左親指'+number] for number in '０１２']
     parent_matrix = thumb[0].parent.bone.matrix_local.copy()
@@ -67,7 +106,8 @@ def _left_finger_rotations(rig):
         rest_parent = bone.parent.bone.matrix_local
         neutral = parent_matrix @ rest_parent.inverted() @ bone.bone.matrix_local
         desired = neutral.copy()
-        swing = neutral.to_3x3().col[1].rotation_difference(frame @ Vector(direction).normalized())
+        direction = Vector((direction[0], direction[1]*curl_sign, direction[2])).normalized()
+        swing = neutral.to_3x3().col[1].rotation_difference(frame @ direction)
         desired_rotation = swing.to_matrix() @ neutral.to_3x3()
         for i in range(3):
             for j in range(3):
@@ -111,8 +151,13 @@ def default_offset(rig, side='L'):
     if reference:
         return Matrix(reference)
     wrist, orientation = hand_frame(rig)
-    placement = orientation.to_4x4() @ Matrix.Rotation(math.radians(20), 4, 'Y')
-    placement.translation = wrist.head_local+orientation @ Vector((.024, .011, -.002))
+    _, profile = phone_profile(rig)
+    placement = orientation.to_4x4() @ Matrix.Rotation(math.radians(profile.get('fit_tilt_degrees',20)), 4, 'Y')
+    if profile.get('fit_palm_side', 1) < 0:
+        # Flip the case, keeping its long axis; this character's palm is on
+        # the opposite side of the geometric left-hand frame from Ellen's.
+        placement = placement @ Matrix.Rotation(math.pi, 4, 'Z')
+    placement.translation = wrist.head_local+orientation @ Vector(profile.get('fit_translation',(.024, .011, -.002)))
     if side == 'R':
         reflection = Matrix.Diagonal((-1., 1., 1., 1.))
         placement = reflection @ placement @ reflection
@@ -124,6 +169,14 @@ def bind_character(scene, rig, anchor, side):
     root = anchor.children[0]
     old_side = anchor.get('sam_phone_side', 'L')
     revision = reference_profile(rig).get('revision', 0)
+    _, profile = phone_profile(rig)
+    fit_revision = profile.get('fit_revision', 0)
+    if fit_revision and root.get('sam_phone_profile_fit_revision') != fit_revision:
+        root['sam_phone_previous_fit_'+old_side] = [list(row) for row in root.matrix_local]
+        for hand in ('L', 'R'):
+            root['sam_phone_fit_'+hand] = [list(row) for row in default_offset(rig, hand)]
+        root.matrix_local = default_offset(rig, old_side)
+        root['sam_phone_profile_fit_revision'] = fit_revision
     if revision and root.get('sam_phone_grip_revision') != revision:
         for hand in ('L', 'R'):
             root['sam_phone_fit_'+hand] = [list(row) for row in default_offset(rig, hand)]
@@ -325,7 +378,7 @@ def refine_phone_geometry(anchor):
     anchor['sam_phone_geometry_revision'] = 2
 
 
-def build(scene, rig):
+def build_shark(scene, rig):
     wrist, orientation = hand_frame(rig)
     collection = bpy.data.collections.new('艾莲手机 / 雾蓝鲨鱼款')
     scene.collection.children.link(collection)
@@ -442,22 +495,66 @@ def build(scene, rig):
     return anchor, root
 
 
+def build(scene, rig):
+    key, profile = phone_profile(rig)
+    if profile.get('builder') == 'shark':
+        anchor, root = build_shark(scene, rig)
+    else:
+        path = Path(__file__).parent / profile['asset']
+        if not path.is_file():
+            raise ValueError('缺少此角色的手机资源：' + str(path))
+        with bpy.data.libraries.load(str(path), link=False) as (source, target):
+            if profile['collection'] not in source.collections:
+                raise ValueError('手机资源缺少配置的模型集合')
+            target.collections = [profile['collection']]
+        collection = target.collections[0]
+        scene.collection.children.link(collection)
+        model = next(o for o in collection.objects if o.name.startswith(profile['root']) and not o.parent)
+        anchor = bpy.data.objects.new('手机 / 左手腕挂点', None)
+        collection.objects.link(anchor)
+        anchor['sam_phone_rig'] = rig.name
+        anchor.empty_display_size = .012
+        root = bpy.data.objects.new('手机 / 位置与角度', None)
+        collection.objects.link(root)
+        root.parent = anchor
+        root.matrix_local = default_offset(rig)
+        root['sam_phone_offset'] = [list(row) for row in root.matrix_local]
+        # Asset: +Y long axis, +Z rear. Grip: +Z long axis, -Y rear.
+        model.parent = root
+        model.matrix_local = Matrix.Rotation(math.pi/2, 4, 'X')
+        model['stage'] = 'Character wrist binding / frame-range visibility'
+        for obj in model.children_recursive:
+            label = obj.name.removeprefix('玲手机 /').strip().split('.')[0]
+            obj['sam_phone_outline_solid'] = label in profile.get('outline_parts', [])
+    anchor['sam_phone_profile'] = key
+    root['sam_phone_profile'] = key
+    return anchor, root
+
+
+def remove_phone(anchor):
+    for child in reversed(list(anchor.children_recursive)):
+        bpy.data.objects.remove(child, do_unlink=True)
+    bpy.data.objects.remove(anchor, do_unlink=True)
+
+
 def ensure(scene, rig=None):
     rig = rig or scene.sam_ellen.rig
     if not rig:
         raise ValueError('请先选择人物骨架')
     side = scene.sam_ellen.phone_side
     bones(rig, side)
+    key, profile = phone_profile(rig)
     anchor = next((o for o in scene.objects if o.get('sam_phone_rig') == rig.name), None)
-    if anchor and not any(child.type == 'MESH' for root in anchor.children for child in root.children):
-        for root in list(anchor.children):
-            for child in list(root.children):
-                bpy.data.objects.remove(child, do_unlink=True)
-            bpy.data.objects.remove(root, do_unlink=True)
-        bpy.data.objects.remove(anchor, do_unlink=True)
-        anchor = None
+    if anchor and (anchor.get('sam_phone_profile', 'ELLEN_SHARK') != key or
+                   not any(child.type == 'MESH' for child in anchor.children_recursive)):
+        # Load and validate the replacement before retiring an existing prop.
+        replacement, root = build(scene, rig)
+        remove_phone(anchor)
+        anchor = replacement
     if anchor is None:
         anchor, root = build(scene, rig)
+    anchor['sam_phone_profile'] = key
+    rig['sam_phone_profile'] = key
     bind_character(scene, rig, anchor, side)
     sync(scene)
     return anchor
@@ -488,8 +585,9 @@ def ensure_phone_outline(group):
                     '后置镜头金属环', '后置镜片', '前置摄像头', '电源键', '音量键')
     solid_nodes = [node for node in group.nodes if node.type == 'OBJECT_INFO'
                    and node.inputs['Object'].default_value
-                   and node.inputs['Object'].default_value.name.removeprefix('手机 /').strip()
-                   .split('.')[0] in solid_labels]
+                   and (node.inputs['Object'].default_value.get('sam_phone_outline_solid') or
+                        node.inputs['Object'].default_value.name.removeprefix('手机 /').strip()
+                        .split('.')[0] in solid_labels)]
     if not solid_nodes:
         return
     enabled = group.interface.new_socket(name='手机实体描边', in_out='INPUT', socket_type='NodeSocketBool')
@@ -542,7 +640,7 @@ def ensure_display(rig, anchor):
                       if o.type in {'MESH','CURVE','FONT'}),key=lambda o:o.name)
     names = [o.name for o in sources]
     for mat in {slot.material for obj in sources for slot in obj.material_slots if slot.material}:
-        if mat.name.startswith('手机 /'):
+        if mat.name.startswith(('手机 /', '玲手机 /')):
             ensure_local_color(mat)
     if modifier is None:
         modifier = body.modifiers.new(DISPLAY,'NODES')

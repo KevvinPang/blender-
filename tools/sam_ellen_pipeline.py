@@ -5,7 +5,7 @@ rebakes an action. Generation and reapplication use this same public profile.
 """
 import json
 
-REVISION = 20
+REVISION = 23
 FRAMING_MODEL = 'face-trajectory-v1 / fixed roots / camera translation'
 PROFILE = {
     'screen_enabled': True,

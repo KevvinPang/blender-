@@ -17,6 +17,7 @@ mocap_runtime.json
 *.blend
 *.blend1
 *.blend2
+!tools/sam_phone_assets/*.blend
 *.mp4
 *.mov
 *.mkv

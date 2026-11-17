@@ -115,7 +115,8 @@ def bake(scene, filepath, start, gain=1, lead_ms=30, attach_audio=True,
             sound = import_audio(scene, str(path), start)
         if not _capture:
             scene.frame_end = max(scene.frame_end, int(frames[-1]))
-        if any(i.enabled for i in settings.items) or settings.global_speech_gain != 1:
+        if (any(i.enabled for i in settings.items) or settings.global_speech_gain != 1
+                or settings.speech_speed != 1):
             settings.generated_action = None
             expr.rebuild(scene)
         scene.xr_ellen.face_mode = 'OFF'

@@ -461,15 +461,6 @@ def apply_visibility(scratch,rig,channels,data,side,protected=None,report=None,i
         from sam_ellen_entry_direction import align_forearms
         direction_allowed=allowed if image_weights is None else allowed&(np.asarray(image_weights)>=.999)
         align_forearms(scratch,rig,channels,data,side,cameras,direction_allowed,protected,supported_floors,mirror)
-        from sam_ellen_body_clearance import guard_body,guard_unsupported_elbows
-        # Establish the existing collision-safe trajectory before resolving
-        # hand-only elbow ambiguity. Removing direction fitting altogether
-        # also removes its entry continuity, so retain that earlier proposal.
-        guard_body(scratch,rig,channels,data,side,direction_allowed,protected,
-                   data.setdefault('_sam_body_clearance',[]))
-        elbow_report=data.setdefault('_sam_elbow_evidence',[])
-        guard_unsupported_elbows(scratch,rig,channels,data,side,direction_allowed,protected,
-                                 elbow_report)
-        if elbow_report[-1]['changes']:
-            guard_body(scratch,rig,channels,data,side,direction_allowed,protected,
-                       data.setdefault('_sam_body_clearance',[]))
+        # Image fitting is a proposal. A single final trajectory solve owns
+        # elbow evidence, loss recovery, clearance and speed simultaneously.
+        # Independent body/elbow guards here used to invalidate one another.

@@ -9,7 +9,8 @@ from mathutils import Matrix, Vector
 
 def sync_camera_views(scene):
     """Refresh stored viewport cameras after a committed scene-camera change."""
-    camera = scene.camera
+    from ellen_camera_distance import sync_camera
+    camera = sync_camera(scene)
     if camera is None:
         return 0
     changed = 0
@@ -52,6 +53,11 @@ def camera_source(camera):
     seen = set()
     while camera and camera.name not in seen:
         seen.add(camera.name)
+        from ellen_camera_distance import source_camera
+        unwrapped = source_camera(camera)
+        if unwrapped != camera:
+            camera = unwrapped
+            continue
         parent = bpy.data.objects.get(camera.get('sam_original_camera', ''))
         if parent is None:
             break
@@ -62,6 +68,8 @@ def camera_source(camera):
 def append_input_camera(camera, start):
     """Recover this clip's input, retaining corrections from earlier clips."""
     if camera is None:return camera
+    from ellen_camera_distance import source_camera
+    camera = source_camera(camera)
     source = bpy.data.objects.get(camera.get('sam_sequence_source_camera',''))
     if source and abs(camera.get('sam_sequence_start',-1)-start)<1e-4:
         return source
@@ -79,6 +87,8 @@ def calibrated_camera(scene, target_rig, scratch, rig, channels, data, options):
     from sam_ellen_frame_body import rotation
     from sam_ellen_screen_fit import projected
     camera = bpy.data.objects.get(options.get('camera','')) or scene.camera
+    from ellen_camera_distance import source_camera
+    camera = source_camera(camera)
     if camera is None or camera.type != 'CAMERA' or camera.data.type != 'PERSP':
         raise ValueError('基础构图校准目前需要透视摄像机')
     # Appending must not change the framing of previously imported clips.

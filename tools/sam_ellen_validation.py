@@ -9,6 +9,23 @@ def polygon_area(points):
     return float(abs(np.sum(p[:,0]*np.roll(p[:,1],-1)-p[:,1]*np.roll(p[:,0],-1)))*.5) if len(p)>2 else 0.
 
 
+def curve_motion_review(rows):
+    """Measure stop/start changes even when hand evidence is absent."""
+    samples=[r for r in rows if not r.get('intermediate')]
+    for i in range(1,len(samples)-1):
+        before,row,after=samples[i-1:i+2]
+        left=row['time']-before['time'];right=after['time']-row['time']
+        if min(left,right)<=0:continue
+        for side,arm in row.get('arms',{}).items():
+            triple=[r.get('arms',{}).get(side,{}) for r in (before,row,after)]
+            if not all('torso_relative_elbow_wrist' in a for a in triple):continue
+            p,c,n=[np.array(a['torso_relative_elbow_wrist']) for a in triple]
+            delta=np.linalg.norm((n-c)/right-(c-p)/left,axis=1)
+            arm['curve_velocity_change_mps']=float(max(delta))
+            arm['unobserved_stop_start_review']=bool(not any(a.get('hand_observed') for a in triple)
+                and max(delta)>.8*max(.5,(left+right)*15))
+
+
 def image_motion_review(actual,previous,target,old_target,height,dt,elbow=None,old_elbow=None):
     """Compare temporal screen motion, even when the input pose also jumps.
 
@@ -120,6 +137,9 @@ def validate_final(scene,rig,data,options,report):
                     'link_length_ratio':[a/b for a,b in zip(lengths,rest)]}
                 chest=e.pose.bones.get('UpperBody2') or e.pose.bones.get('UpperBody1')
                 down=chest.matrix.to_quaternion()@chest.bone.matrix_local.to_quaternion().inverted()@Vector((0,0,-1))
+                body_rotation=chest.matrix.to_quaternion()@chest.bone.matrix_local.to_quaternion().inverted()
+                arm_row['torso_relative_elbow_wrist']=[list(body_rotation.inverted()@(b.head-arm.head)) for b in (elbow,wrist)]
+                arm_row['hand_observed']=bool(usable[side][i])
                 axis=(wrist.head-arm.head).normalized();distance=(wrist.head-arm.head).length
                 along=(distance**2+lengths[0]**2-lengths[1]**2)/(2*max(1e-8,distance))
                 radius=np.sqrt(max(0.,lengths[0]**2-along**2));low=down-axis*down.dot(axis)
@@ -140,7 +160,8 @@ def validate_final(scene,rig,data,options,report):
                         arm_row['palm_orientation_review']=bool(arm_row['palm_normal_error_degrees']>35)
                 if len(policy)==len(data['frames']) and side in policy[i]:
                     p=policy[i][side]
-                    arm_row.update(minimum_supported_elbow=p.get('active_minimum_elbow',p['minimum_elbow']),
+                    from sam_ellen_arm_policy import supported_elbow_minimum
+                    arm_row.update(minimum_supported_elbow=supported_elbow_minimum(data,side,i),
                         evidence_state=p.get('mode','unknown'),source_elbow=p['source_elbow'])
                 pose_rows=data['screen'].get('pose_arms',[])
                 direct_pose=pose_rows[i].get(side) if len(pose_rows)==len(data['frames']) else None
@@ -233,12 +254,13 @@ def validate_final(scene,rig,data,options,report):
                 if not np.isfinite(actual).all():raise ValueError('Invalid final hand projection')
             report.append(row)
             # Check actual F-curve interpolation, not merely the sampled poses.
-            if i+1<len(data['frames']):
-                midpoint=(f+timeline_frame(data,data['frames'][i+1]['time']))*.5
+            for fraction in ((.25,.5,.75) if i+1<len(data['frames']) else ()):
+                next_frame=timeline_frame(data,data['frames'][i+1]['time'])
+                midpoint=f*(1-fraction)+next_frame*fraction
                 scene.frame_set(int(midpoint),subframe=midpoint-int(midpoint))
                 mid=rig.evaluated_get(bpy.context.evaluated_depsgraph_get())
                 mid_envelope=torso_envelope(mid,body_geometry)
-                check={'frame':float(midpoint),'time':(sample['time']+data['frames'][i+1]['time'])*.5,
+                check={'frame':float(midpoint),'time':sample['time']*(1-fraction)+data['frames'][i+1]['time']*fraction,
                     'intermediate':True,'hands':{},'arms':{},'silhouettes':{}}
                 for side in sides:
                     a,b,c=[mid.pose.bones[n+'_'+side] for n in ('Arm','Elbow','Wrist')]
@@ -250,13 +272,41 @@ def validate_final(scene,rig,data,options,report):
                             v.length/(c.bone.head_local-b.bone.head_local).length]}
                     values['torso_proxy_clearance']=arm_clearance(a.head,b.head,c.head,mid_envelope)
                     if len(policy)==len(data['frames']) and side in policy[i] and side in policy[i+1]:
-                        values['minimum_supported_elbow']=min(policy[k][side].get('active_minimum_elbow',35.) for k in (i,i+1))-1.
+                        from sam_ellen_arm_policy import supported_elbow_minimum
+                        values['minimum_supported_elbow']=min(supported_elbow_minimum(data,side,k) for k in (i,i+1))-1.
                     check['arms'][side]=values
                 report.append(check)
             yield i+1,len(data['frames'])
+        curve_motion_review(report)
     finally:
         scene.frame_set(frame,subframe=subframe)
         if physics is not None:scene.wiggle_enable=physics
+
+
+def require_safe_arms(rows,sides=None,active_times=None):
+    """Reject unsafe evaluated curves; callers restore the previous action.
+
+    Image-fit and palm-evidence warnings remain reviewable. They must not be
+    conflated with an impossible skeleton or a trajectory through the torso.
+    """
+    failures=[]
+    for row in rows:
+        if active_times is not None:
+            times,active=active_times
+            right=min(len(times)-1,int(np.searchsorted(times,row['time'])))
+            left=max(0,right-1)
+            if not (active[left] or active[right]):continue
+        for side,arm in row.get('arms',{}).items():
+            if sides is not None and side not in sides:continue
+            causes=[]
+            if arm.get('torso_proxy_clearance',0)<-.002:causes.append('手臂穿入躯干')
+            if any(not np.isfinite(v) or abs(v-1)>.005 for v in arm.get('link_length_ratio',[])):causes.append('骨段长度异常')
+            if arm.get('wrist_bend_degrees',0)>75.1:causes.append('手腕超出解剖范围')
+            if arm.get('elbow_angle_degrees',180)<arm.get('minimum_supported_elbow',35.)-.5:causes.append('肘部过度翻折')
+            if any(v>1200.1 or not np.isfinite(v) for v in arm.get('angular_speed_degrees_per_second',{}).values()):causes.append('手臂瞬时转动过快')
+            if causes:failures.append('%g帧%s：%s'%(row['frame'],side,'、'.join(causes)))
+    if failures:
+        raise ValueError('动捕未通过手臂安全检查，已保留原动作。'+ '；'.join(failures[:4]))
 
 
 def summary(rows):
@@ -286,6 +336,9 @@ def summary(rows):
     if unsupported:issues.append('unsupported arm acceleration spike')
     if unsupported_raises:issues.append('unmeasured elbow chose an unnecessarily elevated branch')
     image_motion=[(r['frame'],s) for r in rows for s,a in r.get('arms',{}).items() if a.get('image_motion',{}).get('image_motion_review')]
+    stop_start=[(r['frame'],s) for r in rows for s,a in r.get('arms',{}).items() if a.get('unobserved_stop_start_review')]
+    velocity_changes=[a['curve_velocity_change_mps'] for r in rows for a in r.get('arms',{}).values() if 'curve_velocity_change_mps' in a]
+    if stop_start:issues.append('unobserved arm trajectory stops or starts abruptly')
     if image_motion:issues.append('arm screen motion exceeds video evidence')
     if any(abs(v-1)>.005 for r in rows for a in r.get('arms',{}).values() for v in a.get('link_length_ratio',[])):issues.append('arm link length changed')
     folded=[(r['frame'],side) for r in rows for side,a in r.get('arms',{}).items()
@@ -308,6 +361,9 @@ def summary(rows):
         'unsupported_elbow_fold_frames':prior_folds,'unsupported_acceleration_frames':unsupported,
         'unsupported_elbow_raise_frames':unsupported_raises,
         'image_motion_review_frames':image_motion,
+        'unobserved_stop_start_frames':stop_start,
+        'curve_velocity_change_p95_mps':float(np.percentile(velocity_changes,95)) if velocity_changes else None,
+        'curve_velocity_change_max_mps':max(velocity_changes) if velocity_changes else None,
         'contradictory_forearm_frames':direction_fail,
         'palm_orientation_review_frames':palm_fail,
         'palm_normal_median_error_degrees':float(np.median(palm_errors)) if palm_errors else None,
